@@ -3,8 +3,8 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "journifyio-react-native-sdk-sovran": ["packages/sovran/src/index"],
-      "journifyio-react-native-sdk": ["packages/core/src/index"]
+      "@journifyio/react-native-sdk-sovran": ["packages/sovran/src/index"],
+      "@journifyio/react-native-sdk": ["packages/core/src/index"]
     },
     "composite": true,
     "allowUnreachableCode": false,
