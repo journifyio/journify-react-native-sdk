@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "lib/typescript",
+    "rootDir": ".",
+    "baseUrl": "."
+  },
+  "references": [{ "path": "../sovran" }],
+  "include": ["src/**/*", "src/**/*.json", "types.d.ts"]
+}
