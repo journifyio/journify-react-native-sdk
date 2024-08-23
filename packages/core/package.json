@@ -1,6 +1,6 @@
 {
   "name": "@journifyio/react-native-sdk",
-  "version": "0.0.0",
+  "version": "1.0.0-beta.1",
   "description": "journifyio sdk",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -166,5 +166,6 @@
       "module",
       "typescript"
     ]
-  }
+  },
+  "stableVersion": "0.0.0"
 }
