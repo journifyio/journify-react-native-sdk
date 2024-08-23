@@ -1,6 +1,5 @@
 module.exports = {
   ci: false,
-  dryRun: true,
   branches: ["main", {
     name: "beta",
     prerelease: true
