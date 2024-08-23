@@ -2,6 +2,7 @@
 
 Journifyio's React Native SDK, a library that allows you to integrate Journifyio's into your React Native app.
 
+### ⚠️ this is still beta version, please report any issues you encounter.
 
 ## Installation
 
@@ -11,7 +12,7 @@ Install `@journifyio/react-native-sdk`,  [`@journifyio/react-native-sdk-sovran`]
 ```sh
 yarn add @journifyio/react-native-sdk@beta @journifyio/react-native-sdk-sovran@beta react-native-get-random-values @react-native-async-storage/async-storage 
 # or
-npm install --save @journifyio/react-native-sdk @journifyio/react-native-sdk-sovran@beta react-native-get-random-values @react-native-async-storage/async-storage 
+npm install --save @journifyio/react-native-sdk@beta @journifyio/react-native-sdk-sovran@beta react-native-get-random-values @react-native-async-storage/async-storage 
 ```
 
 *Note: `@react-native-async-storage/async-storage` is an optional dependency. If you wish to use your own persistence layer you can use the `storePersistor` option when initializing the client. Make sure you always have a persistor (either by having AsyncStorage package installed or by explicitly passing a value), else you might get unexpected side-effects like multiple 'Application Installed' events. Read more [Client Options](#client-options)*
