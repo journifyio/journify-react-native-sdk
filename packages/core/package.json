@@ -1,6 +1,6 @@
 {
   "name": "@journifyio/react-native-sdk",
-  "version": "0.0.1-1",
+  "version": "1.0.0-beta.4",
   "description": "journifyio sdk",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -58,7 +58,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@journifyio/react-native-sdk-sovran": "^1.0.0-beta.1",
+    "@journifyio/react-native-sdk-sovran": "^1.0.0-beta.3",
     "@segment/tsub": "^2",
     "deepmerge": "^4.3.1",
     "js-base64": "^3.7.5",
@@ -73,7 +73,7 @@
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "@journifyio/react-native-sdk-sovran": "^1.0.0-beta.1",
+    "@journifyio/react-native-sdk-sovran": "^1.0.0-beta.3",
     "@react-native-async-storage/async-storage": "1.x",
     "react": "*",
     "react-native": "*",
