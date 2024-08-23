@@ -1,6 +1,7 @@
 module.exports = {
   ci: false,
-  branches: ['main'],
+  dryRun: true,
+  branches: [{name: "main", prerelease: true}],
   plugins: [
     [
       '@semantic-release/commit-analyzer', 
@@ -8,8 +9,11 @@ module.exports = {
     ],
     '@semantic-release/changelog',
     'semantic-release-yarn',
-    '@semantic-release/github',
-    '@semantic-release/git'
+    ["@semantic-release/github", {
+      "prerelease": true
+    }],
+    '@semantic-release/git',
+    
   ],
   debug: true
 };
