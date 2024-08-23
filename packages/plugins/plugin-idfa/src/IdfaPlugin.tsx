@@ -2,7 +2,7 @@ import {
   Plugin,
   PluginType,
   JournifyClient,
-} from 'journifyio-react-native-sdk';
+} from '@journifyio/react-native-sdk';
 import type { IdfaData } from './types';
 import { AnalyticsReactNativePluginIdfa } from './AnalyticsReactNativePluginIdfa';
 import { Platform } from 'react-native';
