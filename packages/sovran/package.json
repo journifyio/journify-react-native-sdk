@@ -52,10 +52,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "workspaces": [
-    "example"
-  ],
-  "packageManager": "yarn@3.6.1",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [

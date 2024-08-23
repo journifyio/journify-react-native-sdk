@@ -3,7 +3,7 @@ import {
   PluginType,
   JournifyClient,
   getNativeModule,
-} from 'journifyio-react-native-sdk';
+} from '@journifyio/react-native-sdk';
 
 import { Platform, type NativeModule } from 'react-native';
 

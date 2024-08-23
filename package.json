@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "packages/sovran",
-    "packages/core"
+    "packages/core",
+    "packages/plugins/*"
   ],
   "scripts": {
     "bootstrap": "yarn install && yarn example install && yarn example pods && yarn e2e install && yarn e2e pods && husky install",
@@ -54,8 +55,5 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
   },
-  "packageManager": "yarn@4.1.0",
-  "dependencies": {
-    "react-native-uuid": "^2.0.2"
-  }
+  "packageManager": "yarn@4.1.0"
 }

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "journifyio-react-native-sdk-plugin-idfa",
   "source": "./src/index.tsx",
-  "main": "./lib/commonjs/index.js",
+  "main": "lib/commonjs/index",
   "files": [
     "src",
     "lib",
@@ -72,10 +72,6 @@
   "peerDependencies": {
     "@journifyio/react-native-sdk": "*"
   },
-  "workspaces": [
-    "example"
-  ],
-  "packageManager": "yarn@3.6.1",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
