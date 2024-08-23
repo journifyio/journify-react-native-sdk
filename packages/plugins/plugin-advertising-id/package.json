@@ -1,6 +1,6 @@
 {
   "name": "@journifyio/react-native-sdk-plugin-advertising-id",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "advertising-id",
   "source": "./src/index.tsx",
   "main": "lib/commonjs/index",
