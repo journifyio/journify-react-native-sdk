@@ -59,7 +59,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@journifyio/react-native-sdk-sovran": "latest",
+    "@journifyio/react-native-sdk-sovran": "^1.0.0-beta.1",
     "@segment/tsub": "^2",
     "deepmerge": "^4.3.1",
     "js-base64": "^3.7.5",
@@ -73,7 +73,7 @@
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "@journifyio/react-native-sdk-sovran": "*",
+    "@journifyio/react-native-sdk-sovran": "^1.0.0-beta.1",
     "@react-native-async-storage/async-storage": "1.x",
     "react": "*",
     "react-native": "*",
