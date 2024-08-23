@@ -5,7 +5,7 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "journifyio-react-native-sdk-plugin-idfa": ["./src/index"]
+      "@journifyio/react-native-sdk-plugin-idfa": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
