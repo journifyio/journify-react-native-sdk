@@ -2548,14 +2548,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-plugin-advertising-id@workspace:packages/plugins/plugin-advertising-id"
   dependencies:
-    "@journifyio/react-native-sdk": "npm:beta"
-    "@journifyio/react-native-sdk-sovran": "npm:beta"
+    "@journifyio/react-native-sdk": "npm:^1.0.0-beta.2"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.0.0-beta.2"
     jest: "npm:^29.7.0"
     react-native-builder-bob: "npm:^0.23.1"
     rimraf: "npm:^5.0.5"
     typescript: "npm:^5.2.2"
   peerDependencies:
-    "@journifyio/react-native-sdk": "*"
+    "@journifyio/react-native-sdk": ^1.0.0-beta.2
   languageName: unknown
   linkType: soft
 
@@ -2563,18 +2563,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-plugin-idfa@workspace:packages/plugins/plugin-idfa"
   dependencies:
-    "@journifyio/react-native-sdk": "npm:beta"
-    "@journifyio/react-native-sdk-sovran": "npm:beta"
+    "@journifyio/react-native-sdk": "npm:^1.0.0-beta.2"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.0.0-beta.2"
     jest: "npm:^29.7.0"
     react-native-builder-bob: "npm:^0.23.1"
     rimraf: "npm:^5.0.5"
     typescript: "npm:^5.2.2"
   peerDependencies:
-    "@journifyio/react-native-sdk": "*"
+    "@journifyio/react-native-sdk": ^1.0.0-beta.2
   languageName: unknown
   linkType: soft
 
-"@journifyio/react-native-sdk-sovran@npm:^1.0.0-beta.1, @journifyio/react-native-sdk-sovran@workspace:packages/sovran":
+"@journifyio/react-native-sdk-sovran@npm:^1.0.0-beta.1, @journifyio/react-native-sdk-sovran@npm:^1.0.0-beta.2, @journifyio/react-native-sdk-sovran@workspace:packages/sovran":
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-sovran@workspace:packages/sovran"
   dependencies:
@@ -2597,69 +2597,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@journifyio/react-native-sdk-sovran@npm:beta":
-  version: 0.0.1-0
-  resolution: "@journifyio/react-native-sdk-sovran@npm:0.0.1-0"
-  dependencies:
-    ansi-regex: "npm:5.0.1"
-    deepmerge: "npm:^4.2.2"
-    react-native-get-random-values: "npm:1.x"
-    shell-quote: "npm:1.8.0"
-    uuid: "npm:^9.0.1"
-  peerDependencies:
-    "@react-native-async-storage/async-storage": 1.x
-    react: "*"
-    react-native: "*"
-  peerDependenciesMeta:
-    "@react-native-async-storage/async-storage":
-      optional: true
-  checksum: 10c0/06e5de4361bc62dc746b4e09a5646a78ce98730f2120dd518433d95fefe71f8aefd0c899ed3c13e99c890302936b7d6379254d7292667835238e8a4c705b23fc
-  languageName: node
-  linkType: hard
-
-"@journifyio/react-native-sdk-sovran@npm:latest":
-  version: 1.0.0
-  resolution: "@journifyio/react-native-sdk-sovran@npm:1.0.0"
-  dependencies:
-    ansi-regex: "npm:5.0.1"
-    deepmerge: "npm:^4.2.2"
-    react-native-get-random-values: "npm:1.x"
-    shell-quote: "npm:1.8.0"
-    uuid: "npm:^9.0.1"
-  peerDependencies:
-    "@react-native-async-storage/async-storage": 1.x
-    react: "*"
-    react-native: "*"
-  peerDependenciesMeta:
-    "@react-native-async-storage/async-storage":
-      optional: true
-  checksum: 10c0/3fe5135cef15d3c5ef61e7cbe180685a9d2d7fff893804fa30a492c80e75b7d58a8a6c1b3850a4f236493c2ea25a18c697979fe6c6bd9f6b8bff3e990bd56fcd
-  languageName: node
-  linkType: hard
-
-"@journifyio/react-native-sdk@npm:beta":
-  version: 0.0.1-0
-  resolution: "@journifyio/react-native-sdk@npm:0.0.1-0"
-  dependencies:
-    "@journifyio/react-native-sdk-sovran": "npm:latest"
-    "@segment/tsub": "npm:^2"
-    deepmerge: "npm:^4.3.1"
-    js-base64: "npm:^3.7.5"
-    uuid: "npm:^9.0.1"
-  peerDependencies:
-    "@journifyio/react-native-sdk-sovran": "*"
-    "@react-native-async-storage/async-storage": 1.x
-    react: "*"
-    react-native: "*"
-    react-native-get-random-values: 1.x
-  peerDependenciesMeta:
-    "@react-native-async-storage/async-storage":
-      optional: true
-  checksum: 10c0/ca878c721b6980ba6daf8acf6e103628a806e78974f8894b9a21444a31f094047339d47312f550940fcf8d343212f6079580a70e0b4aafd9b4af4e029dc9ca9e
-  languageName: node
-  linkType: hard
-
-"@journifyio/react-native-sdk@workspace:packages/core":
+"@journifyio/react-native-sdk@npm:^1.0.0-beta.2, @journifyio/react-native-sdk@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk@workspace:packages/core"
   dependencies:
