@@ -32,12 +32,10 @@
     "!**/.*"
   ],
   "scripts": {
-    "prebuild": "node constants-generator.js && eslint --fix ./src/info.ts",
     "build": "bob build",
     "clean": "rimraf lib node_modules ./src/info.ts",
     "test": "jest",
-    "typescript": "tsc --noEmit",
-    "prepack": "yarn prebuild"
+    "typescript": "tsc --noEmit"
   },
   "keywords": [
     "react-native",
