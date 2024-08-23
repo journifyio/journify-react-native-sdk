@@ -185,7 +185,7 @@ export class JournifyClient {
 
   public async init() {
     if (this.isReady.value) {
-      console.log('JournifyClient already initialized');
+      console.log('JournifyClient have been already initialized');
       return;
     }
     if ((await this.store.isReady.get(true)) === false) {
