@@ -1,6 +1,6 @@
 {
   "name": "@journifyio/react-native-sdk-plugin-advertising-id",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "advertising-id",
   "source": "./src/index.tsx",
   "main": "lib/commonjs/index",
@@ -47,8 +47,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@journifyio/react-native-sdk": "^0.0.1-0",
-    "@journifyio/react-native-sdk-sovran": "^0.0.1-0",
+    "@journifyio/react-native-sdk": "^1.0.0-beta.6",
+    "@journifyio/react-native-sdk-sovran": "^1.0.0-beta.3",
     "jest": "^29.7.0",
     "react-native-builder-bob": "^0.23.1",
     "rimraf": "^5.0.5",
@@ -67,7 +67,7 @@
     "@types/react": "^18.2.44"
   },
   "peerDependencies": {
-    "@journifyio/react-native-sdk": "^0.0.1-0"
+    "@journifyio/react-native-sdk": "^1.0.0-beta.6"
   },
   "jest": {
     "preset": "react-native",
