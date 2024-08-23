@@ -7,6 +7,7 @@ const DEFAULT_CDN_HOST = 'https://static.journify.io';
 export const defaultConfig: ClientConfig = {
   writeKey: '',
   cdnHost: DEFAULT_CDN_HOST,
+  trackAppLifecycleEvents: false,
 };
 
 

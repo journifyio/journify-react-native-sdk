@@ -1,6 +1,7 @@
 import { Context, Device, Traits } from './events';
 import {
   AnalyticsReactNativeModule,
+  ClientConfig,
   GetContextConfig,
   NativeContextInfo,
 } from './types';
@@ -27,9 +28,9 @@ const defaultContext = {
   screenDensity: 0,
 };
 
-export const getContext = async (userTraits: Traits = {}): Promise<Context> => {
+export const getContext = async (userTraits: Traits = {}, config?: ClientConfig): Promise<Context> => {
   const nativeConfig: GetContextConfig = {
-    collectDeviceId: true,
+    collectDeviceId: config?.collectDeviceId ?? false,
   };
 
   const nativeModule = getNativeModule(

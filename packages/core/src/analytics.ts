@@ -245,12 +245,16 @@ export class JournifyClient {
    * Application Opened - the previously detected version is same as the current version
    */
   private async checkInstalledVersion() {
-    const context = await getContext(undefined);
+    const context = await getContext(undefined, this.config);
 
     const previousContext = this.store.context.get();
 
     // Only overwrite the previous context values to preserve any values that are added by enrichment plugins like IDFA
     await this.store.context.set(deepmerge(previousContext ?? {}, context));
+
+    if (this.config.trackAppLifecycleEvents !== true) {
+      return;
+    }
 
     if (previousContext?.app === undefined) {
       const event = createTrackEvent({
@@ -295,6 +299,7 @@ export class JournifyClient {
    * @param nextAppState 'active', 'inactive', 'background' or 'unknown'
    */
   private handleAppStateChange(nextAppState: AppStateStatus) {
+    if (this.config.trackAppLifecycleEvents === true) {
     if (
       ['inactive', 'background'].includes(this.appState) &&
       nextAppState === 'active'
@@ -319,6 +324,7 @@ export class JournifyClient {
       this.process(event);
       console.log('TRACK (Application Backgrounded) event saved', event);
     }
+  }
     this.appState = nextAppState;
   }
 

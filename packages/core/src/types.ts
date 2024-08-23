@@ -9,6 +9,8 @@ export type ClientConfig = {
   flushAt?: number;
   flushInterval?: number;
   flushPolicies?: FlushPolicy[];
+  collectDeviceId?: boolean;
+  trackAppLifecycleEvents?: boolean;
 } & StoreConfig;
 
 type StoreConfig = {
