@@ -7,7 +7,7 @@ PODS:
   - hermes-engine (0.75.2):
     - hermes-engine/Pre-built (= 0.75.2)
   - hermes-engine/Pre-built (0.75.2)
-  - journifyio-react-native-sdk (1.8.0):
+  - journifyio-react-native-sdk (1.0.0-beta.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -28,7 +28,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - journifyio-react-native-sdk-sovran (1.8.0):
+  - journifyio-react-native-sdk-sovran (1.0.0-beta.2):
     - React-Core
   - RCT-Folly (2024.01.01.00):
     - boost
@@ -1797,8 +1797,8 @@ SPEC CHECKSUMS:
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: 69ef571f3de08433d766d614c73a9838a06bf7eb
   hermes-engine: 3b6e0717ca847e2fc90a201e59db36caf04dee88
-  journifyio-react-native-sdk: 00ae78a44c041722324c893d8825a9715196f257
-  journifyio-react-native-sdk-sovran: 112386e645c60b97e0f5d8486a6aa350ae0ec623
+  journifyio-react-native-sdk: 4484046f1cb5ef0ff547c4142552947f729bec71
+  journifyio-react-native-sdk-sovran: 8e099883648593effa1c035fe64a26f67c3062ab
   RCT-Folly: 4464f4d875961fce86008d45f4ecf6cef6de0740
   RCTDeprecation: 34cbf122b623037ea9facad2e92e53434c5c7422
   RCTRequired: 24c446d7bcd0f517d516b6265d8df04dc3eb1219

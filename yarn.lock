@@ -2548,14 +2548,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-plugin-advertising-id@workspace:packages/plugins/plugin-advertising-id"
   dependencies:
-    "@journifyio/react-native-sdk": "npm:^1.0.0-beta.2"
+    "@journifyio/react-native-sdk": "npm:^0.0.1-0"
     "@journifyio/react-native-sdk-sovran": "npm:^1.0.0-beta.2"
     jest: "npm:^29.7.0"
     react-native-builder-bob: "npm:^0.23.1"
     rimraf: "npm:^5.0.5"
     typescript: "npm:^5.2.2"
   peerDependencies:
-    "@journifyio/react-native-sdk": ^1.0.0-beta.2
+    "@journifyio/react-native-sdk": ^0.0.1-0
   languageName: unknown
   linkType: soft
 
@@ -2563,14 +2563,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-plugin-idfa@workspace:packages/plugins/plugin-idfa"
   dependencies:
-    "@journifyio/react-native-sdk": "npm:^1.0.0-beta.2"
+    "@journifyio/react-native-sdk": "npm:^0.0.1-0"
     "@journifyio/react-native-sdk-sovran": "npm:^1.0.0-beta.2"
     jest: "npm:^29.7.0"
     react-native-builder-bob: "npm:^0.23.1"
     rimraf: "npm:^5.0.5"
     typescript: "npm:^5.2.2"
   peerDependencies:
-    "@journifyio/react-native-sdk": ^1.0.0-beta.2
+    "@journifyio/react-native-sdk": ^0.0.1-0
   languageName: unknown
   linkType: soft
 
@@ -2597,7 +2597,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@journifyio/react-native-sdk@npm:^1.0.0-beta.2, @journifyio/react-native-sdk@workspace:packages/core":
+"@journifyio/react-native-sdk@npm:^0.0.1-0, @journifyio/react-native-sdk@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk@workspace:packages/core"
   dependencies:
@@ -2608,6 +2608,7 @@ __metadata:
     jest: "npm:^29.7.0"
     js-base64: "npm:^3.7.5"
     react-native-builder-bob: "npm:^0.23.1"
+    react-native-uuid: "npm:^2.0.2"
     semantic-release: "npm:^22.0.8"
     typescript: "npm:^5.2.2"
     uuid: "npm:^9.0.1"
@@ -12751,6 +12752,13 @@ __metadata:
   peerDependencies:
     react-native: ">=0.56"
   checksum: 10c0/2ce71f1ab7f5b36d4a9dd59cc80b4aa75526f047c6680a7f1a388fa8b9a62efdacaf7b7de3be593c73e882773b2eee74916b00f7c8b158e40b46388998218586
+  languageName: node
+  linkType: hard
+
+"react-native-uuid@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "react-native-uuid@npm:2.0.2"
+  checksum: 10c0/326678b3e1d076e7cda6db41ab3ee073695b31217a0e849f87bae3616a7f79e876fd8b5d735bee030275bddd44312eea9b6bfc5217997b2001d68a5d4aceec96
   languageName: node
   linkType: hard
 

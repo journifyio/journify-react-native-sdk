@@ -10,8 +10,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@journifyio/react-native-sdk": "^1.8.0",
-    "@journifyio/react-native-sdk-sovran": "^1.8.0",
+    "@journifyio/react-native-sdk": "1.0.0-beta.2",
+    "@journifyio/react-native-sdk-sovran": "1.0.0-beta.2",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-navigation/bottom-tabs": "^6.6.1",
     "@react-navigation/native": "^6.1.18",
