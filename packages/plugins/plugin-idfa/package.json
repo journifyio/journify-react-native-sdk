@@ -23,13 +23,10 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace journifyio-react-native-sdk-plugin-idfa-example",
+    "build": "bob build",
     "test": "jest",
-    "typecheck": "tsc",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepare": "bob build",
-    "release": "release-it"
+    "typescript": "tsc --noEmit",
+    "clean": "rimraf lib node_modules"
   },
   "keywords": [
     "react-native",

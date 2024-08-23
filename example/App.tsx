@@ -4,11 +4,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createClient } from '@journifyio/react-native-sdk';
-
+import { IdfaPlugin } from '@journifyio/react-native-sdk-plugin-idfa';
+import { AdvertisingIdPlugin } from '@journifyio/react-native-sdk-plugin-advertising-id'
 
 const client = createClient({
   writeKey: 'wk_2d4mVF4PZNzNfGzfiLdaMkw9rVf',
 })
+
+client.add({ plugin: new IdfaPlugin() });
+client.add({ plugin: new AdvertisingIdPlugin() });
+
 // Types
 type Product = {
   id: string;

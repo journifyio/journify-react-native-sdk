@@ -26,12 +26,10 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace journifyio-react-native-sdk-sovran-example",
     "test": "jest",
-    "typecheck": "tsc",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepare": "bob build",
+    "typescript": "tsc --noEmit",
+    "build": "bob build",
+    "clean": "rimraf lib node_modules",
     "release": "semantic-release"
   },
   "keywords": [

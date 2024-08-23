@@ -1964,6 +1964,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@journifyio/react-native-sdk-plugin-advertising-id@npm:^1.0.0-beta.1":
+  version: 1.0.0-beta.1
+  resolution: "@journifyio/react-native-sdk-plugin-advertising-id@npm:1.0.0-beta.1"
+  peerDependencies:
+    "@journifyio/react-native-sdk": ^1.0.0-beta.2
+  checksum: 10c0/916fcecf9e92667ba967d96db0dae713f43748c116087f6f89ae09a020e0bf210baf1bedaf68211a7cc1c0ae14b10a211ccf8ee1e59a47e81d8aa9cf437fd9f1
+  languageName: node
+  linkType: hard
+
+"@journifyio/react-native-sdk-plugin-idfa@npm:^1.0.0-beta.1":
+  version: 1.0.0-beta.1
+  resolution: "@journifyio/react-native-sdk-plugin-idfa@npm:1.0.0-beta.1"
+  peerDependencies:
+    "@journifyio/react-native-sdk": ^1.0.0-beta.2
+  checksum: 10c0/da68422f27459e28de07d15db637a430b479a64ce97c440bae2837e8561fb1b01bc475cea336d062db705c027324a4f6164ca90b29b4218f3a837d898c0311df
+  languageName: node
+  linkType: hard
+
 "@journifyio/react-native-sdk-sovran@npm:1.0.0-beta.2":
   version: 1.0.0-beta.2
   resolution: "@journifyio/react-native-sdk-sovran@npm:1.0.0-beta.2"
@@ -6074,6 +6092,8 @@ __metadata:
     "@babel/preset-env": "npm:^7.20.0"
     "@babel/runtime": "npm:^7.20.0"
     "@journifyio/react-native-sdk": "npm:1.0.0-beta.2"
+    "@journifyio/react-native-sdk-plugin-advertising-id": "npm:^1.0.0-beta.1"
+    "@journifyio/react-native-sdk-plugin-idfa": "npm:^1.0.0-beta.1"
     "@journifyio/react-native-sdk-sovran": "npm:1.0.0-beta.2"
     "@react-native-async-storage/async-storage": "npm:^2.0.0"
     "@react-native/babel-preset": "npm:0.75.2"
