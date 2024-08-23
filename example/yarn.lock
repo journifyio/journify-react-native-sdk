@@ -1964,21 +1964,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@journifyio/react-native-sdk-plugin-advertising-id@npm:^1.0.0-beta.1":
-  version: 1.0.0-beta.1
-  resolution: "@journifyio/react-native-sdk-plugin-advertising-id@npm:1.0.0-beta.1"
+"@journifyio/react-native-sdk-plugin-advertising-id@npm:^1.0.0-beta.2":
+  version: 1.0.0-beta.2
+  resolution: "@journifyio/react-native-sdk-plugin-advertising-id@npm:1.0.0-beta.2"
   peerDependencies:
-    "@journifyio/react-native-sdk": ^1.0.0-beta.2
-  checksum: 10c0/916fcecf9e92667ba967d96db0dae713f43748c116087f6f89ae09a020e0bf210baf1bedaf68211a7cc1c0ae14b10a211ccf8ee1e59a47e81d8aa9cf437fd9f1
+    "@journifyio/react-native-sdk": ^1.0.0-beta.6
+  checksum: 10c0/8ea6286c089c4d7ea2ecf89cbdae1d7694de3add82ec44da1e8352dd83d48c8ca4ad6fd5a931a7d54226d8753f199f88720ae34a50fda3a48d7086280816f3d2
   languageName: node
   linkType: hard
 
-"@journifyio/react-native-sdk-plugin-idfa@npm:^1.0.0-beta.1":
-  version: 1.0.0-beta.1
-  resolution: "@journifyio/react-native-sdk-plugin-idfa@npm:1.0.0-beta.1"
+"@journifyio/react-native-sdk-plugin-idfa@npm:^1.0.0-beta.2":
+  version: 1.0.0-beta.2
+  resolution: "@journifyio/react-native-sdk-plugin-idfa@npm:1.0.0-beta.2"
   peerDependencies:
-    "@journifyio/react-native-sdk": ^1.0.0-beta.2
-  checksum: 10c0/da68422f27459e28de07d15db637a430b479a64ce97c440bae2837e8561fb1b01bc475cea336d062db705c027324a4f6164ca90b29b4218f3a837d898c0311df
+    "@journifyio/react-native-sdk": ^1.0.0-beta.4
+  checksum: 10c0/d83ba238643f959e2c599783e5c610b8423d66f1d9eea9d8ab9973ba0e52ff06d7616ae036431f43c6a2a7a076a1ed8648f56c309287cf4671667aee4c884846
   languageName: node
   linkType: hard
 
@@ -2002,7 +2002,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@journifyio/react-native-sdk-sovran@npm:^1.0.0-beta.1":
+"@journifyio/react-native-sdk-sovran@npm:^1.0.0-beta.3":
   version: 1.8.0
   resolution: "@journifyio/react-native-sdk-sovran@npm:1.8.0"
   dependencies:
@@ -2022,17 +2022,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@journifyio/react-native-sdk@npm:1.0.0-beta.2":
-  version: 1.0.0-beta.2
-  resolution: "@journifyio/react-native-sdk@npm:1.0.0-beta.2"
+"@journifyio/react-native-sdk@npm:1.0.0-beta.6":
+  version: 1.0.0-beta.6
+  resolution: "@journifyio/react-native-sdk@npm:1.0.0-beta.6"
   dependencies:
-    "@journifyio/react-native-sdk-sovran": "npm:^1.0.0-beta.1"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.0.0-beta.3"
     "@segment/tsub": "npm:^2"
     deepmerge: "npm:^4.3.1"
     js-base64: "npm:^3.7.5"
+    react-native-uuid: "npm:^2.0.2"
     uuid: "npm:^9.0.1"
   peerDependencies:
-    "@journifyio/react-native-sdk-sovran": ^1.0.0-beta.1
+    "@journifyio/react-native-sdk-sovran": ^1.0.0-beta.3
     "@react-native-async-storage/async-storage": 1.x
     react: "*"
     react-native: "*"
@@ -2040,7 +2041,7 @@ __metadata:
   peerDependenciesMeta:
     "@react-native-async-storage/async-storage":
       optional: true
-  checksum: 10c0/90337ce604a0877a57a2a228755d73ee8b9d85b1628cb84093fb65ac2759e939db0f4d464c31ce686956ef110e9ce90cfa58fbad6d2cb99ff16bcc8b79bab503
+  checksum: 10c0/876099c8744116df408c72a5b1a8c16190a8ea3c8fb12d6d33f31eb8de0b730dfb865f2c235a5b259da9e20d5700ca65685603370971c92a19564b323536a94e
   languageName: node
   linkType: hard
 
@@ -6091,9 +6092,9 @@ __metadata:
     "@babel/core": "npm:^7.20.0"
     "@babel/preset-env": "npm:^7.20.0"
     "@babel/runtime": "npm:^7.20.0"
-    "@journifyio/react-native-sdk": "npm:1.0.0-beta.2"
-    "@journifyio/react-native-sdk-plugin-advertising-id": "npm:^1.0.0-beta.1"
-    "@journifyio/react-native-sdk-plugin-idfa": "npm:^1.0.0-beta.1"
+    "@journifyio/react-native-sdk": "npm:1.0.0-beta.6"
+    "@journifyio/react-native-sdk-plugin-advertising-id": "npm:^1.0.0-beta.2"
+    "@journifyio/react-native-sdk-plugin-idfa": "npm:^1.0.0-beta.2"
     "@journifyio/react-native-sdk-sovran": "npm:1.0.0-beta.2"
     "@react-native-async-storage/async-storage": "npm:^2.0.0"
     "@react-native/babel-preset": "npm:0.75.2"

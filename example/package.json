@@ -10,9 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@journifyio/react-native-sdk": "1.0.0-beta.2",
-    "@journifyio/react-native-sdk-plugin-advertising-id": "^1.0.0-beta.1",
-    "@journifyio/react-native-sdk-plugin-idfa": "^1.0.0-beta.1",
+    "@journifyio/react-native-sdk": "1.0.0-beta.6",
+    "@journifyio/react-native-sdk-plugin-advertising-id": "^1.0.0-beta.2",
+    "@journifyio/react-native-sdk-plugin-idfa": "^1.0.0-beta.2",
     "@journifyio/react-native-sdk-sovran": "1.0.0-beta.2",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-navigation/bottom-tabs": "^6.6.1",

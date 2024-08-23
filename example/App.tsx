@@ -9,6 +9,8 @@ import { AdvertisingIdPlugin } from '@journifyio/react-native-sdk-plugin-adverti
 
 const client = createClient({
   writeKey: 'wk_2d4mVF4PZNzNfGzfiLdaMkw9rVf',
+  cdnHost: 'https://static.journify.dev',
+  trackAppLifecycleEvents: true,
 })
 
 client.add({ plugin: new IdfaPlugin() });

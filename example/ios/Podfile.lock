@@ -7,7 +7,7 @@ PODS:
   - hermes-engine (0.75.2):
     - hermes-engine/Pre-built (= 0.75.2)
   - hermes-engine/Pre-built (0.75.2)
-  - journifyio-react-native-sdk (1.0.0-beta.2):
+  - journifyio-react-native-sdk (1.0.0-beta.6):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -28,7 +28,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - journifyio-react-native-sdk-advertising-id (1.0.0-beta.1):
+  - journifyio-react-native-sdk-advertising-id (1.0.0-beta.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -49,7 +49,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - journifyio-react-native-sdk-plugin-idfa (1.0.0-beta.1):
+  - journifyio-react-native-sdk-plugin-idfa (1.0.0-beta.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1845,9 +1845,9 @@ SPEC CHECKSUMS:
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: 69ef571f3de08433d766d614c73a9838a06bf7eb
   hermes-engine: 3b6e0717ca847e2fc90a201e59db36caf04dee88
-  journifyio-react-native-sdk: 4484046f1cb5ef0ff547c4142552947f729bec71
-  journifyio-react-native-sdk-advertising-id: 3bb2b757c0946ed5672ee16c930f5b38d9a454e7
-  journifyio-react-native-sdk-plugin-idfa: 3dae6419fb0fc1a0d661cbb032598bcf67a10794
+  journifyio-react-native-sdk: 225f4aea59ff9efa470500b43d7b294fda81b28a
+  journifyio-react-native-sdk-advertising-id: 2d6701b4b7e6795cac299f0e3292364bee867d73
+  journifyio-react-native-sdk-plugin-idfa: fe6c2958b4a826c2dcc0ea6d7106770444b2ed5f
   journifyio-react-native-sdk-sovran: 8e099883648593effa1c035fe64a26f67c3062ab
   RCT-Folly: 4464f4d875961fce86008d45f4ecf6cef6de0740
   RCTDeprecation: 34cbf122b623037ea9facad2e92e53434c5c7422
