@@ -1,3 +1,17 @@
+export const createIdentifyEvent = ({
+  userId,
+  userTraits = {},
+}: {
+  userId?: string;
+  userTraits?: Traits;
+}): JournifyEvent => {
+  return {
+    type: JournifyEventType.IDENTIFY,
+    userId: userId,
+    traits: userTraits,
+  };
+};
+
 export const createTrackEvent = ({
   event,
   properties = {},

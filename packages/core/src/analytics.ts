@@ -19,6 +19,8 @@ import {
   type Context,
   JournifyEventType,
   createScreenEvent,
+  Traits,
+  createIdentifyEvent,
 } from './events';
 import { FlushPolicy, Observable } from './flushPolicies/types';
 import type { Plugin } from './plugin';
@@ -622,6 +624,15 @@ export class JournifyClient {
 
   async track(eventName: string, properties?: JsonMap) {
     const event = createTrackEvent({ event: eventName, properties });
+    await this.process(event);
+  }
+
+  async identify(userId?: string, userTraits?: Traits) {
+    const event = createIdentifyEvent({
+      userId: userId,
+      userTraits: userTraits,
+    });
+
     await this.process(event);
   }
 
