@@ -1,3 +1,5 @@
+import { libraryInfo } from './info';
+
 import { Context, Device, Traits } from './events';
 import {
   AnalyticsReactNativeModule,
@@ -75,8 +77,8 @@ export const getContext = async (userTraits: Traits = {}, config?: ClientConfig)
     },
     device,
     library: {
-      name: 'analytics-react-native',
-      version: '1.0.0',
+      name: libraryInfo.name,
+      version: libraryInfo.version,
     },
     locale,
     network: {
