@@ -1,4 +1,7 @@
-import type { Unsubscribe, Persistor } from '@journifyio/react-native-sdk-sovran';
+import type {
+  Unsubscribe,
+  Persistor,
+} from '@journifyio/react-native-sdk-sovran';
 import {
   DeepPartial,
   JournifyAPIConsentSettings,

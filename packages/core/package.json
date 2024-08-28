@@ -1,7 +1,7 @@
 {
   "name": "@journifyio/react-native-sdk",
   "version": "1.0.0-beta.6",
-  "description": "journifyio sdk",
+  "description": "Jounrifyio React Native SDK",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
@@ -32,6 +32,7 @@
     "!**/.*"
   ],
   "scripts": {
+    "prebuild": "node constants-generator.js && eslint --fix ./src/info.ts",
     "build": "bob build",
     "clean": "rimraf lib node_modules ./src/info.ts",
     "test": "jest",
@@ -122,30 +123,6 @@
       }
     }
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@react-native",
-      "prettier"
-    ],
-    "rules": {
-      "react/react-in-jsx-scope": "off",
-      "prettier/prettier": [
-        "error",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
-        }
-      ]
-    }
-  },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/"
-  ],
   "prettier": {
     "quoteProps": "consistent",
     "singleQuote": true,

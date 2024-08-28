@@ -1,6 +1,7 @@
 import { Persistor } from '@journifyio/react-native-sdk-sovran';
 import type { NativeModule } from 'react-native';
 import { FlushPolicy } from './flushPolicies/types';
+import { JsonMap, Traits } from './events';
 
 export type ClientConfig = {
   writeKey: string;
@@ -16,6 +17,14 @@ export type ClientConfig = {
 type StoreConfig = {
   storePersistor?: Persistor;
   storePersistorSaveDelay?: number;
+};
+
+export type ClientMethods = {
+  screen: (name: string, properties?: JsonMap) => Promise<void>;
+  track: (event: string, properties?: JsonMap) => Promise<void>;
+  identify: (userId?: string, userTraits?: Traits) => Promise<void>;
+  flush: () => Promise<void>;
+  reset: (resetAnonymousId?: boolean) => Promise<void>;
 };
 
 export type JournifyAPIConsentSettings = {

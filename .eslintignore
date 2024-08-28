@@ -1,0 +1,11 @@
+node_modules/
+coverage/
+lib/
+e2e/
+example/
+
+
+**/*.config.js
+**/*.config.base.js
+.eslintrc.js
+constants-generator.js

@@ -1,3 +1,5 @@
+import { libraryInfo } from './info';
+
 import { Context, Device, Traits } from './events';
 import {
   AnalyticsReactNativeModule,
@@ -28,7 +30,10 @@ const defaultContext = {
   screenDensity: 0,
 };
 
-export const getContext = async (userTraits: Traits = {}, config?: ClientConfig): Promise<Context> => {
+export const getContext = async (
+  userTraits: Traits = {},
+  config?: ClientConfig
+): Promise<Context> => {
   const nativeConfig: GetContextConfig = {
     collectDeviceId: config?.collectDeviceId ?? false,
   };
@@ -75,8 +80,8 @@ export const getContext = async (userTraits: Traits = {}, config?: ClientConfig)
     },
     device,
     library: {
-      name: 'analytics-react-native',
-      version: '1.0.0',
+      name: libraryInfo.name,
+      version: libraryInfo.version,
     },
     locale,
     network: {

@@ -71,6 +71,73 @@ You must pass at least the `writeKey`. Additional configuration options are list
 | `storePersistor`           | undefined | A custom persistor for the store that `@journifyio/react-native-sdk` leverages. Must match [`Persistor`](https://github.com/journifyio/journifyio-react-native-sdk/blob/beta/packages/sovran/src/persistor/persistor.ts#L1-L18) interface exported from [@journifyio/react-native-sdk-sovran](https://github.com/journifyio/journifyio-react-native-sdk/blob/beta/packages/sovran).|
 
 
+
+### Usage with hooks
+
+In order to use the `useAnalytics` hook within the application, we will additionally need to wrap the application in
+an AnalyticsProvider. This uses the [Context API](https://reactjs.org/docs/context.html) and will allow
+access to the analytics client anywhere in the application
+
+```js
+import {
+  createClient,
+  AnalyticsProvider,
+} from '@journifyio/react-native-sdk';
+
+const journifyClient = createClient({
+  writeKey: 'WRITE_KEY'
+});
+
+const App = () => (
+  <AnalyticsProvider client={journifyClient}>
+    <Content />
+  </AnalyticsProvider>
+);
+```
+
+### useAnalytics()
+
+The client methods will be exposed via the `useAnalytics()` hook:
+
+```js
+import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
+import { useAnalytics } from '@journifyio/react-native-sdk';
+
+const Button = () => {
+  const { track } = useAnalytics();
+  return (
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => {
+        track('Awesome event');
+      }}
+    >
+      <Text style={styles.text}>Press me!</Text>
+    </TouchableOpacity>
+  );
+};
+```
+
+
+### Usage without hooks
+
+The tracking events can also be used without hooks by calling the methods directly on the client:
+```js
+import {
+  createClient,
+  AnalyticsProvider,
+} from '@journifyio/react-native-sdk';
+
+// create the client once when the app loads
+const journifyClient = createClient({
+  writeKey: 'WRITE_KEY'
+});
+
+// track an event using the client instance
+journifyClient.track('Awesome event');
+```
+
 ## Client methods
 
 ### Track
@@ -110,6 +177,29 @@ journifyClient.screen('ScreenName', {
 });
 ```
 For setting up automatic screen tracking, see the [instructions below](#automatic-screen-tracking).
+
+
+### Identify
+
+The [identify](https://docs.journify.io/tracking/identify-event) call lets you tie a user to their actions and record traits about them. This includes a unique user ID and any optional traits you know about them like their email, name, etc. The traits option can include any information you might want to tie to the user, but when using any of the [reserved user traits](https://docs.journify.io/tracking/identify-event#traits), you should make sure to only use them for their intended meaning.
+
+Method signature:
+
+```js
+identify: (userId: string, userTraits?: JsonMap) => void;
+```
+
+Example usage:
+
+```js
+const { identify } = useAnalytics();
+
+identify('user-123', {
+  username: 'MisterWhiskers',
+  email: 'hello@test.com',
+  plan: 'premium',
+});
+```
 
 ### Reset
 
