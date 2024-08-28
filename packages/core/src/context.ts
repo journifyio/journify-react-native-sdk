@@ -101,6 +101,5 @@ export const getContext = async (
     traits: userTraits,
     instanceId: getUUID(),
   };
-  console.log('context', ctx);
   return ctx;
 };
