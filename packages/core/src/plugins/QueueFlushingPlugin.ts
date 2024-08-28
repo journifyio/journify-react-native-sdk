@@ -34,15 +34,10 @@ export class QueueFlushingPlugin extends UtilityPlugin {
 
   async execute(event: JournifyEvent): Promise<JournifyEvent | undefined> {
     this.queueStore?.push(event);
-    console.log('QueueFlushingPlugin execute', this.queueStore?.length);
     return event;
   }
 
   async flush(): Promise<void> {
-    console.log(
-      'QueueFlushingPlugin flush, isPendingUpload: ',
-      this.isPendingUpload
-    );
     if (this.isPendingUpload) {
       return;
     }
@@ -50,7 +45,6 @@ export class QueueFlushingPlugin extends UtilityPlugin {
     try {
       const events = this.queueStore || [];
       this.isPendingUpload = true;
-      console.log('QueueFlushingPlugin flushing: ', events.length);
 
       await this.onFlush(events);
     } finally {

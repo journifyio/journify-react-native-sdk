@@ -13,7 +13,6 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
-console.log('NativeModules', Object.keys(NativeModules));
 const Sovran = NativeModules.JournifyioReactNativeSdkSovran as NativeModule;
 
 type NativeModuleConstants = { ON_STORE_ACTION: string };

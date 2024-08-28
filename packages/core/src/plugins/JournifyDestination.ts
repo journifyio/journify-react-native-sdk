@@ -49,12 +49,10 @@ export class JournifyDestination extends DestinationPlugin {
   execute(event: JournifyEvent): Promise<JournifyEvent | undefined> {
     // Execute the internal timeline here, the queue plugin will pick up the event and add it to the queue automatically
     const enrichedEvent = super.execute(event);
-    console.log('JournifyDestination execute', event.event);
     return enrichedEvent;
   }
 
   async flush() {
-    console.log('JournifyDestination flush');
     // Wait until the queue is done restoring before flushing
     return this.queuePlugin.flush();
   }
