@@ -2548,14 +2548,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-plugin-advertising-id@workspace:packages/plugins/plugin-advertising-id"
   dependencies:
-    "@journifyio/react-native-sdk": "npm:^1.0.0"
-    "@journifyio/react-native-sdk-sovran": "npm:^1.0.0-beta.3"
+    "@journifyio/react-native-sdk": "npm:^1.1.0"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.1.0"
     jest: "npm:^29.7.0"
     react-native-builder-bob: "npm:^0.23.1"
     rimraf: "npm:^5.0.5"
     typescript: "npm:^5.2.2"
   peerDependencies:
-    "@journifyio/react-native-sdk": ^1.0.0
+    "@journifyio/react-native-sdk": ^1.1.0
   languageName: unknown
   linkType: soft
 
@@ -2563,38 +2563,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-plugin-idfa@workspace:packages/plugins/plugin-idfa"
   dependencies:
-    "@journifyio/react-native-sdk": "npm:^1.0.0"
-    "@journifyio/react-native-sdk-sovran": "npm:^1.0.0-beta.3"
+    "@journifyio/react-native-sdk": "npm:^1.1.0"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.1.0"
     jest: "npm:^29.7.0"
     react-native-builder-bob: "npm:^0.23.1"
     rimraf: "npm:^5.0.5"
     typescript: "npm:^5.2.2"
   peerDependencies:
-    "@journifyio/react-native-sdk": ^1.0.0
+    "@journifyio/react-native-sdk": ^1.1.0
   languageName: unknown
   linkType: soft
 
-"@journifyio/react-native-sdk-sovran@npm:^1.0.0-beta.3":
-  version: 1.8.0
-  resolution: "@journifyio/react-native-sdk-sovran@npm:1.8.0"
-  dependencies:
-    ansi-regex: "npm:5.0.1"
-    deepmerge: "npm:^4.2.2"
-    react-native-get-random-values: "npm:1.x"
-    shell-quote: "npm:1.8.0"
-    uuid: "npm:^9.0.1"
-  peerDependencies:
-    "@react-native-async-storage/async-storage": 1.x
-    react: "*"
-    react-native: "*"
-  peerDependenciesMeta:
-    "@react-native-async-storage/async-storage":
-      optional: true
-  checksum: 10c0/9e526ddf11417c5763d2c7a3c6237bd5b6fe892143ab8656d32fa6c60d365cf9290efc6d110bd6b8361fd0751b29fe6e6aa24a4dbc01072d5594f0ae7acbec85
-  languageName: node
-  linkType: hard
-
-"@journifyio/react-native-sdk-sovran@workspace:packages/sovran":
+"@journifyio/react-native-sdk-sovran@npm:^1.1.0, @journifyio/react-native-sdk-sovran@workspace:packages/sovran":
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-sovran@workspace:packages/sovran"
   dependencies:
@@ -2617,11 +2597,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@journifyio/react-native-sdk@npm:^1.0.0, @journifyio/react-native-sdk@workspace:packages/core":
+"@journifyio/react-native-sdk@npm:^1.1.0, @journifyio/react-native-sdk@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk@workspace:packages/core"
   dependencies:
-    "@journifyio/react-native-sdk-sovran": "npm:^1.0.0-beta.3"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.1.0"
     "@segment/tsub": "npm:^2"
     "@types/uuid": "npm:^9.0.7"
     deepmerge: "npm:^4.3.1"
@@ -2633,7 +2613,7 @@ __metadata:
     typescript: "npm:^5.2.2"
     uuid: "npm:^9.0.1"
   peerDependencies:
-    "@journifyio/react-native-sdk-sovran": ^1.0.0-beta.3
+    "@journifyio/react-native-sdk-sovran": ^1.1.0
     "@react-native-async-storage/async-storage": 1.x
     react: "*"
     react-native: "*"
