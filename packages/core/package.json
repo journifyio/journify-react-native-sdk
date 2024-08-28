@@ -1,6 +1,6 @@
 {
   "name": "@journifyio/react-native-sdk",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0",
   "description": "Jounrifyio React Native SDK",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "prebuild": "node constants-generator.js && eslint --fix ./src/info.ts",
-    "build": "bob build",
+    "build": "yarn prebuild && bob build",
     "clean": "rimraf lib node_modules ./src/info.ts",
     "test": "jest",
     "typescript": "tsc --noEmit"
@@ -138,6 +138,5 @@
       "module",
       "typescript"
     ]
-  },
-  "stableVersion": "0.0.0"
+  }
 }
