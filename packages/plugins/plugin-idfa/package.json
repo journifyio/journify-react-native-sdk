@@ -1,6 +1,6 @@
 {
   "name": "@journifyio/react-native-sdk-plugin-idfa",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0",
   "description": "Journifyio React Native SDK Plugin IDFA",
   "source": "./src/index.tsx",
   "main": "lib/commonjs/index",
@@ -47,7 +47,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@journifyio/react-native-sdk": "^1.0.0-beta.6",
+    "@journifyio/react-native-sdk": "^1.0.0",
     "@journifyio/react-native-sdk-sovran": "^1.0.0-beta.3",
     "jest": "^29.7.0",
     "react-native-builder-bob": "^0.23.1",
@@ -67,7 +67,7 @@
     "@types/react": "^18.2.44"
   },
   "peerDependencies": {
-    "@journifyio/react-native-sdk": "^1.0.0-beta.6"
+    "@journifyio/react-native-sdk": "^1.0.0"
   },
   "jest": {
     "preset": "react-native",
@@ -111,6 +111,5 @@
     "tabWidth": 2,
     "trailingComma": "es5",
     "useTabs": false
-  },
-  "stableVersion": "1.0.0-beta.1"
+  }
 }
