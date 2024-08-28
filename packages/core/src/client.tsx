@@ -35,7 +35,6 @@ export const AnalyticsProvider = ({
   return <Context.Provider value={client}>{children}</Context.Provider>;
 };
 
-
 export const useAnalytics = (): ClientMethods => {
   const client = useContext(Context);
   return React.useMemo(() => {

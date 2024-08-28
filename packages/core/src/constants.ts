@@ -10,6 +10,5 @@ export const defaultConfig: ClientConfig = {
   trackAppLifecycleEvents: false,
 };
 
-
 export const defaultFlushAt = 20;
 export const defaultFlushInterval = 30;

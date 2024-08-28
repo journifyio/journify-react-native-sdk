@@ -103,7 +103,7 @@ export class JournifyClient {
       void this.flush();
     }
   );
-  
+
   constructor(config: ClientConfig, store: Storage) {
     this.config = { ...defaultConfig, ...config };
     this.store = store;
@@ -302,31 +302,31 @@ export class JournifyClient {
    */
   private handleAppStateChange(nextAppState: AppStateStatus) {
     if (this.config.trackAppLifecycleEvents === true) {
-    if (
-      ['inactive', 'background'].includes(this.appState) &&
-      nextAppState === 'active'
-    ) {
-      const context = this.store.context.get();
-      const event = createTrackEvent({
-        event: 'Application Opened',
-        properties: {
-          from_background: true,
-          version: context?.app?.version,
-        },
-      });
-      this.process(event);
-      console.log('TRACK (Application Opened) event saved', event);
-    } else if (
-      this.appState === 'active' &&
-      ['inactive', 'background'].includes(nextAppState)
-    ) {
-      const event = createTrackEvent({
-        event: 'Application Backgrounded',
-      });
-      this.process(event);
-      console.log('TRACK (Application Backgrounded) event saved', event);
+      if (
+        ['inactive', 'background'].includes(this.appState) &&
+        nextAppState === 'active'
+      ) {
+        const context = this.store.context.get();
+        const event = createTrackEvent({
+          event: 'Application Opened',
+          properties: {
+            from_background: true,
+            version: context?.app?.version,
+          },
+        });
+        this.process(event);
+        console.log('TRACK (Application Opened) event saved', event);
+      } else if (
+        this.appState === 'active' &&
+        ['inactive', 'background'].includes(nextAppState)
+      ) {
+        const event = createTrackEvent({
+          event: 'Application Backgrounded',
+        });
+        this.process(event);
+        console.log('TRACK (Application Backgrounded) event saved', event);
+      }
     }
-  }
     this.appState = nextAppState;
   }
 
@@ -526,10 +526,10 @@ export class JournifyClient {
 
       console.log('Client has been reset');
     } catch (error) {
-    console.error(error);
+      console.error(error);
     }
   }
-  
+
   /**
    * Registers a callback for each plugin that gets added to the analytics client.
    * @param callback Function to call
@@ -554,7 +554,6 @@ export class JournifyClient {
     this.store.pendingEvents.add(event);
     return event;
   }
-
 
   /**
    * Initializes the flush policies from config and subscribes to updates to

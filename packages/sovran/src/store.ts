@@ -138,7 +138,7 @@ export const createStore = <T extends object>(
       });
   }
 
-  const updatePersistor = (state: T) => {
+  const updatePersistor = (newState: T) => {
     if (config === undefined) {
       return;
     }
@@ -150,7 +150,7 @@ export const createStore = <T extends object>(
       void (async () => {
         try {
           saveTimeout = undefined;
-          await persistor.set(storeId, state);
+          await persistor.set(storeId, newState);
         } catch (error) {
           console.warn(error);
         }
@@ -169,9 +169,9 @@ export const createStore = <T extends object>(
     }
     return new Promise<T>((resolve) => {
       queue.push({
-        call: (state) => {
-          resolve(state);
-          return state;
+        call: (s) => {
+          resolve(s);
+          return s;
         },
       });
       queueObserve.notify(queue);

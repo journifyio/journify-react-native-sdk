@@ -19,7 +19,6 @@ type StoreConfig = {
   storePersistorSaveDelay?: number;
 };
 
-
 export type ClientMethods = {
   screen: (name: string, properties?: JsonMap) => Promise<void>;
   track: (event: string, properties?: JsonMap) => Promise<void>;

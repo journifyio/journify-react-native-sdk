@@ -30,7 +30,10 @@ const defaultContext = {
   screenDensity: 0,
 };
 
-export const getContext = async (userTraits: Traits = {}, config?: ClientConfig): Promise<Context> => {
+export const getContext = async (
+  userTraits: Traits = {},
+  config?: ClientConfig
+): Promise<Context> => {
   const nativeConfig: GetContextConfig = {
     collectDeviceId: config?.collectDeviceId ?? false,
   };

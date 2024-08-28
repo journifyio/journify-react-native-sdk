@@ -72,22 +72,22 @@ type PromiseResult<T> =
       reason: unknown;
     };
 
-    const settlePromise = async <T>(
-      promise: Promise<T> | T
-    ): Promise<PromiseResult<T>> => {
-      try {
-        const result = await promise;
-        return {
-          status: 'fulfilled',
-          value: result,
-        };
-      } catch (error) {
-        return {
-          status: 'rejected',
-          reason: error,
-        };
-      }
-    }
+const settlePromise = async <T>(
+  promise: Promise<T> | T
+): Promise<PromiseResult<T>> => {
+  try {
+    const result = await promise;
+    return {
+      status: 'fulfilled',
+      value: result,
+    };
+  } catch (error) {
+    return {
+      status: 'rejected',
+      reason: error,
+    };
+  }
+};
 
 export const allSettled = async <T>(
   promises: (Promise<T> | T)[]

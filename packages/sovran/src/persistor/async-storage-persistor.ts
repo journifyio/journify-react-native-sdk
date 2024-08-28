@@ -6,7 +6,6 @@ let AsyncStorage: {
 } | null;
 
 try {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   AsyncStorage = require('@react-native-async-storage/async-storage').default;
 } catch (error) {
   AsyncStorage = null;

@@ -1,4 +1,8 @@
-import { createStore, Store, Persistor } from '@journifyio/react-native-sdk-sovran';
+import {
+  createStore,
+  Store,
+  Persistor,
+} from '@journifyio/react-native-sdk-sovran';
 import deepmerge from 'deepmerge';
 import {
   getStateFunc,
@@ -41,7 +45,7 @@ const INITIAL_VALUES: Data = {
 function createStoreGetter<
   U extends object,
   Z extends keyof U | undefined = undefined,
-  V = undefined,
+  V = undefined
 >(store: Store<U>, key?: Z): getStateFunc<Z extends keyof U ? V : U> {
   type X = Z extends keyof U ? V : U;
   return createGetter(

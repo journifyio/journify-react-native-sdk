@@ -36,7 +36,7 @@ export class AdvertisingIdPlugin extends Plugin {
           void this.setContext(id);
         }
       })
-      .catch((error) => { 
+      .catch((error) => {
         console.error('Error getting advertising ID', error);
       });
   }
