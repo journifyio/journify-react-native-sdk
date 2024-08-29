@@ -1,0 +1,38 @@
+name: publish
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    name: Publish to npm
+    environment: Publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Config and Build
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          yarn install --immutable
+          yarn build
+        env:
+          NPM_TOKEN: ${{ secrets.YARN_NPM_AUTH_TOKEN }}
+
+      - name: Publish (All)
+        if: github.event.inputs.workspace == ''
+        run: yarn release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.YARN_NPM_AUTH_TOKEN }}
