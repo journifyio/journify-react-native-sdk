@@ -6,11 +6,13 @@ runs:
   steps:
     - name: Setup Node.js
       uses: actions/setup-node@v4
+      shell: bash
       with:
         node-version: 20
 
     - run: corepack enable
     - uses: actions/setup-node@v4
+      shell: bash
       with:
           node-version: 20
           cache: yarn
@@ -18,6 +20,7 @@ runs:
     - name: Cache dependencies
       id: yarn-cache
       uses: actions/cache@v3
+      shell: bash
       with:
         path: |
           **/node_modules
