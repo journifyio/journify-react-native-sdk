@@ -13,7 +13,6 @@ export const getAllPlugins = (timeline: Timeline) => {
 export const getPluginsWithFlush = (timeline: Timeline) => {
   const allPlugins = getAllPlugins(timeline);
 
-  // checking for the existence of .flush()
   const eventPlugins = allPlugins?.filter(
     (f) => (f as EventPlugin).flush !== undefined
   ) as EventPlugin[];
