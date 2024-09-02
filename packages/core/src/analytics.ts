@@ -360,7 +360,7 @@ export class JournifyClient {
 
   /**
    * Adds a new plugin to the currently loaded set.
-   * @param {{ plugin: Plugin, settings?: IntegrationSettings }} Plugin to be added. Settings are optional if you want to force a configuration instead of the Segment Cloud received one
+   * @param {{ plugin: Plugin, settings?: IntegrationSettings }} Plugin to be added.
    */
   add<P extends Plugin>({ plugin }: { plugin: P }) {
     if (!this.isReady.value) {
