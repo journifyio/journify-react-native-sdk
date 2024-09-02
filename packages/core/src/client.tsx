@@ -5,7 +5,7 @@ import { SovranStorage } from './storage/index';
 
 export function createClient(config: ClientConfig) {
   if (!config.writeKey) {
-    throw new Error('writeKey is required');
+    throw new Error('write key is required');
   }
 
   const segmentStore = new SovranStorage({
