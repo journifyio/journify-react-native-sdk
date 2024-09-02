@@ -8,14 +8,12 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: 20
-      shell: bash
 
     - run: corepack enable
     - uses: actions/setup-node@v4
       with:
           node-version: 20
           cache: yarn
-      shell: bash
 
     - name: Cache dependencies
       id: yarn-cache
@@ -28,9 +26,7 @@ runs:
         restore-keys: |
           ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           ${{ runner.os }}-yarn-
-      shell: bash
 
     - name: Install dependencies
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install --immutable
-      shell: bash
