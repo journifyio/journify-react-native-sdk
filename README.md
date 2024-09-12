@@ -74,14 +74,14 @@ You must pass at least the `writeKey`. Additional configuration options are list
 
 ### Usage with hooks
 
-In order to use the `useAnalytics` hook within the application, we will additionally need to wrap the application in
-an AnalyticsProvider. This uses the [Context API](https://reactjs.org/docs/context.html) and will allow
+In order to use the `useJournify` hook within the application, we will additionally need to wrap the application in
+an JournifyProvider. This uses the [Context API](https://reactjs.org/docs/context.html) and will allow
 access to the analytics client anywhere in the application
 
 ```js
 import {
   createClient,
-  AnalyticsProvider,
+  JournifyProvider,
 } from '@journifyio/react-native-sdk';
 
 const journifyClient = createClient({
@@ -89,23 +89,23 @@ const journifyClient = createClient({
 });
 
 const App = () => (
-  <AnalyticsProvider client={journifyClient}>
+  <JournifyProvider client={journifyClient}>
     <Content />
-  </AnalyticsProvider>
+  </JournifyProvider>
 );
 ```
 
-### useAnalytics()
+### useJournify()
 
-The client methods will be exposed via the `useAnalytics()` hook:
+The client methods will be exposed via the `useJournify()` hook:
 
 ```js
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import { useAnalytics } from '@journifyio/react-native-sdk';
+import { useJournify } from '@journifyio/react-native-sdk';
 
 const Button = () => {
-  const { track } = useAnalytics();
+  const { track } = useJournify();
   return (
     <TouchableOpacity
       style={styles.button}
@@ -126,7 +126,7 @@ The tracking events can also be used without hooks by calling the methods direct
 ```js
 import {
   createClient,
-  AnalyticsProvider,
+  JournifyProvider,
 } from '@journifyio/react-native-sdk';
 
 // create the client once when the app loads
@@ -192,7 +192,7 @@ identify: (userId: string, userTraits?: JsonMap) => void;
 Example usage:
 
 ```js
-const { identify } = useAnalytics();
+const { identify } = useJournify();
 
 identify('user-123', {
   username: 'MisterWhiskers',
