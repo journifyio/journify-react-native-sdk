@@ -424,6 +424,7 @@ export class JournifyClient {
   private applyRawEventData = (event: JournifyEvent): JournifyEvent => {
     return {
       ...event,
+      ...this.userInfo.get(true),
       writeKey: this.config.writeKey,
       messageId: getUUID(),
       timestamp: new Date().toISOString(),
@@ -455,7 +456,6 @@ export class JournifyClient {
   ): Promise<JournifyEvent> => {
     const userInfo = await this.processUserInfo(event);
     const context = await this.context.get(true);
-
     return {
       ...event,
       ...userInfo,
@@ -506,6 +506,7 @@ export class JournifyClient {
     return {
       anonymousId: userInfo.anonymousId,
       userId: userInfo.userId,
+      traits: userInfo.traits,
     };
   };
 
@@ -622,11 +623,17 @@ export class JournifyClient {
   }
 
   async track(eventName: string, properties?: JsonMap) {
-    const event = createTrackEvent({ event: eventName, properties });
+    const event = createTrackEvent({
+      event: eventName,
+      properties,
+    });
     await this.process(event);
   }
 
   async identify(userId?: string, userTraits?: Traits) {
+    if (!userId) {
+      throw new Error('userId is required to identify a user');
+    }
     const event = createIdentifyEvent({
       userId: userId,
       userTraits: userTraits,

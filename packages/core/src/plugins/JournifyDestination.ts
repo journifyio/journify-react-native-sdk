@@ -12,7 +12,6 @@ export class JournifyDestination extends DestinationPlugin {
   type = PluginType.destination;
   key = JOURNIFY_DESTINATION_KEY;
   private apiHost?: string;
-  //   private readonly queuePlugin = new QueueFlushingPlugin(this.sendEvents);
 
   constructor() {
     super();
