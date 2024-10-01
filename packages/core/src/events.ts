@@ -168,7 +168,6 @@ export interface Context {
   app?: App;
   device?: Device;
   screen?: Screen;
-  userAgent?: string;
   library?: {
     name: string;
     version: string;
