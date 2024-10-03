@@ -36,7 +36,12 @@ import {
   Sync,
   WriteKeySettingsResponse,
 } from './types';
-import { allSettled, getPluginsWithFlush, getPluginsWithReset } from './utils';
+import {
+  allSettled,
+  getPluginsWithFlush,
+  getPluginsWithReset,
+  hashPII,
+} from './utils';
 import { getUUID } from './uuid';
 import { getContext } from './context';
 import deepmerge from 'deepmerge';
@@ -482,12 +487,16 @@ export class JournifyClient {
     // within events procesing in the timeline asyncronously
 
     if (event.type === JournifyEventType.IDENTIFY) {
+      let traits = event.traits ?? {};
+      if (this.config.hashPII) {
+        traits = await hashPII(traits);
+      }
       const userInfo = await this.userInfo.set((state) => ({
         ...state,
         userId: event.userId ?? state.userId,
         traits: {
           ...state.traits,
-          ...event.traits,
+          ...traits,
         },
       }));
 
@@ -496,7 +505,7 @@ export class JournifyClient {
         userId: event.userId ?? userInfo.userId,
         traits: {
           ...userInfo.traits,
-          ...event.traits,
+          ...traits,
         },
       };
     }
