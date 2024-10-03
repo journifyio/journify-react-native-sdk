@@ -34,7 +34,7 @@ const client = createClient({
   cdnHost: 'https://static.journify.dev',
   trackAppLifecycleEvents: true,
   flushInterval: 1,
-  hashPII: true,
+  hashPII: false,
 });
 
 type SectionProps = PropsWithChildren<{
