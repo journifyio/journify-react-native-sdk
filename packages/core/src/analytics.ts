@@ -105,7 +105,7 @@ export class JournifyClient {
   private flushPolicyExecuter: FlushPolicyExecuter = new FlushPolicyExecuter(
     [],
     () => {
-      void this.flush();
+      this.flush();
     }
   );
 

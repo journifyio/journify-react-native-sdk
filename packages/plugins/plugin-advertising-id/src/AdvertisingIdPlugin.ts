@@ -29,11 +29,11 @@ export class AdvertisingIdPlugin extends Plugin {
       .then((id: string) => {
         console.log('Advertising ID', id);
         if (id === null) {
-          void analytics.track(
+          analytics.track(
             'LimitAdTrackingEnabled (Google Play Services) is enabled'
           );
         } else {
-          void this.setContext(id);
+          this.setContext(id);
         }
       })
       .catch((error) => {

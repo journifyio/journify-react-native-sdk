@@ -16,7 +16,7 @@
     "clean": "yarn workspaces foreach -A -p run clean",
     "typescript": "tsc --noEmit --composite false",
     "test": "jest",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0",
     "release": "yarn multi-semantic-release"
   },
   "devDependencies": {
