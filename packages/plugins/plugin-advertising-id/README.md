@@ -1,24 +1,36 @@
-# journifyio-react-native-sdk-advertising-id
+# @journifyio/react-native-sdk-plugin-advertising-id
 
-advertising-id
+`EnrichmentPlugin` to collect advertisingId on Android
 
 ## Installation
 
+Add the package
+
 ```sh
-npm install journifyio-react-native-sdk-advertising-id
+yarn add @journifyio/react-native-sdk-plugin-advertising-id
 ```
+
+This plugin requires a `compileSdkVersion` of at least 19. 
 
 ## Usage
 
+Follow the instructions for adding plugins on the main Analytics client:
+
+In your code where you initialize the Analytics client call the `.add(plugin)` method with an `AdvertisingId` instance
 
 ```js
-import { multiply } from 'journifyio-react-native-sdk-advertising-id';
+import { createClient } from '@journifyio/react-native-sdk';
+import { AdvertisingIdPlugin } from '@journifyio/react-native-sdk-plugin-advertising-id';
 
-// ...
+const journifyClient = createClient({
+  writeKey: 'WRITE_KEY'
+});
 
-const result = await multiply(3, 7);
+
+//...
+
+journifyClient.add({ plugin: new AdvertisingIdPlugin() });
 ```
-
 
 ## Contributing
 
@@ -27,7 +39,3 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
