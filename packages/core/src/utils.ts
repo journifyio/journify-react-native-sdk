@@ -104,3 +104,50 @@ export const getPluginsWithReset = (timeline: Timeline) => {
 
   return eventPlugins;
 };
+
+const PII_KEYS = new Set([
+  'email',
+  'phone',
+  'name',
+  'firstname',
+  'lastname',
+  'address',
+  'city',
+  'state',
+  'city_code',
+  'state_code',
+  'country',
+  'country_code',
+  'gender',
+]);
+
+export async function hashPII(
+  obj: Record<string, any>
+): Promise<Record<string, any>> {
+  let newObj = {};
+  for (const key in obj) {
+    let value = obj[key];
+    if (value && PII_KEYS.has(key)) {
+      value = (value + '').toLowerCase();
+      newObj = { ...newObj, [key]: await sha256Hash(value) };
+    } else {
+      newObj = { ...newObj, [key]: value };
+    }
+  }
+
+  return newObj;
+}
+
+export async function sha256Hash(input: string): Promise<string> {
+  const sha256 = require('react-native-sha256').sha256;
+  if (!input || isSHA256Hash(input)) {
+    return input;
+  }
+
+  return await sha256(input);
+}
+
+function isSHA256Hash(input: string): boolean {
+  const sha256Regex = /^[a-f0-9]{64}$/i;
+  return sha256Regex.test(input);
+}

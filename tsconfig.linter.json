@@ -32,5 +32,5 @@
     "noEmit": true
   },
   "include": ["packages/**/*", "types.d.ts"],
-  "exclude": ["**/__fixtures__/**/*", "**/__snapshots__/**/*", "examples/**/*"]
+  "exclude": ["**/__fixtures__/**/*", "**/__snapshots__/**/*", "examples/**/*", "**/linkHelper.js"]
 }

@@ -36,7 +36,12 @@ import {
   Sync,
   WriteKeySettingsResponse,
 } from './types';
-import { allSettled, getPluginsWithFlush, getPluginsWithReset } from './utils';
+import {
+  allSettled,
+  getPluginsWithFlush,
+  getPluginsWithReset,
+  hashPII,
+} from './utils';
 import { getUUID } from './uuid';
 import { getContext } from './context';
 import deepmerge from 'deepmerge';
@@ -100,7 +105,7 @@ export class JournifyClient {
   private flushPolicyExecuter: FlushPolicyExecuter = new FlushPolicyExecuter(
     [],
     () => {
-      void this.flush();
+      this.flush();
     }
   );
 
@@ -424,6 +429,7 @@ export class JournifyClient {
   private applyRawEventData = (event: JournifyEvent): JournifyEvent => {
     return {
       ...event,
+      ...this.userInfo.get(true),
       writeKey: this.config.writeKey,
       messageId: getUUID(),
       timestamp: new Date().toISOString(),
@@ -455,7 +461,6 @@ export class JournifyClient {
   ): Promise<JournifyEvent> => {
     const userInfo = await this.processUserInfo(event);
     const context = await this.context.get(true);
-
     return {
       ...event,
       ...userInfo,
@@ -482,12 +487,16 @@ export class JournifyClient {
     // within events procesing in the timeline asyncronously
 
     if (event.type === JournifyEventType.IDENTIFY) {
+      let traits = event.traits ?? {};
+      if (this.config.hashPII) {
+        traits = await hashPII(traits);
+      }
       const userInfo = await this.userInfo.set((state) => ({
         ...state,
         userId: event.userId ?? state.userId,
         traits: {
           ...state.traits,
-          ...event.traits,
+          ...traits,
         },
       }));
 
@@ -496,7 +505,7 @@ export class JournifyClient {
         userId: event.userId ?? userInfo.userId,
         traits: {
           ...userInfo.traits,
-          ...event.traits,
+          ...traits,
         },
       };
     }
@@ -506,6 +515,7 @@ export class JournifyClient {
     return {
       anonymousId: userInfo.anonymousId,
       userId: userInfo.userId,
+      traits: userInfo.traits,
     };
   };
 
@@ -622,11 +632,17 @@ export class JournifyClient {
   }
 
   async track(eventName: string, properties?: JsonMap) {
-    const event = createTrackEvent({ event: eventName, properties });
+    const event = createTrackEvent({
+      event: eventName,
+      properties,
+    });
     await this.process(event);
   }
 
   async identify(userId?: string, userTraits?: Traits) {
+    if (!userId) {
+      throw new Error('userId is required to identify a user');
+    }
     const event = createIdentifyEvent({
       userId: userId,
       userTraits: userTraits,

@@ -21,7 +21,7 @@ export function createClient(config: ClientConfig) {
 
 const Context = createContext<JournifyClient | null>(null);
 
-export const AnalyticsProvider = ({
+export const JournifyProvider = ({
   client,
   children,
 }: {
@@ -35,13 +35,13 @@ export const AnalyticsProvider = ({
   return <Context.Provider value={client}>{children}</Context.Provider>;
 };
 
-export const useAnalytics = (): ClientMethods => {
+export const useJournify = (): ClientMethods => {
   const client = useContext(Context);
   return React.useMemo(() => {
     if (!client) {
       console.error(
         'Journify client not configured!',
-        'To use the useAnalytics() hook, pass an initialized Journify client into the AnalyticsProvider'
+        'To use the useJournify() hook, pass an initialized Journify client into the JournifyProvider'
       );
     }
 

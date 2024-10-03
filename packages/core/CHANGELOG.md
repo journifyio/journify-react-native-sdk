@@ -1,5 +1,9 @@
 ### Dependencies
 
+* **@journifyio/react-native-sdk-sovran:** upgraded to 1.10.1
+
+### Dependencies
+
 * **@journifyio/react-native-sdk-sovran:** upgraded to 1.10.0
 
 ### Dependencies
