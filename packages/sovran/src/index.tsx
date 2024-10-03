@@ -30,7 +30,7 @@ if (Sovran !== undefined && Sovran !== null) {
   SovranBridge.addListener(
     ON_STORE_ACTION,
     (event: { type: string; payload: unknown }) => {
-      void (async () => {
+      (async () => {
         try {
           await onStoreAction(event.type, event.payload);
         } catch (error) {
