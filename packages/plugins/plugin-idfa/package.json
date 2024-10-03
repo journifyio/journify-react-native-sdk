@@ -1,6 +1,6 @@
 {
   "name": "@journifyio/react-native-sdk-plugin-idfa",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Journifyio React Native SDK Plugin IDFA",
   "source": "./src/index.tsx",
   "main": "lib/commonjs/index",
