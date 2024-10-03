@@ -12,6 +12,7 @@ export type ClientConfig = {
   flushPolicies?: FlushPolicy[];
   collectDeviceId?: boolean;
   trackAppLifecycleEvents?: boolean;
+  hashPII?: boolean;
 } & StoreConfig;
 
 type StoreConfig = {
