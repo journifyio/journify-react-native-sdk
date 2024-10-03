@@ -7,7 +7,28 @@ PODS:
   - hermes-engine (0.75.3):
     - hermes-engine/Pre-built (= 0.75.3)
   - hermes-engine/Pre-built (0.75.3)
-  - journifyio-react-native-sdk (1.11.2):
+  - journifyio-react-native-sdk (1.11.3):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - journifyio-react-native-sdk-plugin-idfa (1.2.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1534,8 +1555,9 @@ DEPENDENCIES:
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
-  - "journifyio-react-native-sdk (from `../node_modules/@journifyio/react-native-sdk`)"
-  - "journifyio-react-native-sdk-sovran (from `../node_modules/@journifyio/react-native-sdk-sovran`)"
+  - journifyio-react-native-sdk (from `../../packages/core`)
+  - "journifyio-react-native-sdk-plugin-idfa (from `../node_modules/@journifyio/react-native-sdk-plugin-idfa`)"
+  - journifyio-react-native-sdk-sovran (from `../../packages/sovran`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCT-Folly/Fabric (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
@@ -1616,9 +1638,11 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
     :tag: hermes-2024-08-15-RNv0.75.1-4b3bf912cc0f705b51b71ce1a5b8bd79b93a451b
   journifyio-react-native-sdk:
-    :path: "../node_modules/@journifyio/react-native-sdk"
+    :path: "../../packages/core"
+  journifyio-react-native-sdk-plugin-idfa:
+    :path: "../node_modules/@journifyio/react-native-sdk-plugin-idfa"
   journifyio-react-native-sdk-sovran:
-    :path: "../node_modules/@journifyio/react-native-sdk-sovran"
+    :path: "../../packages/sovran"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTDeprecation:
@@ -1743,7 +1767,8 @@ SPEC CHECKSUMS:
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: 69ef571f3de08433d766d614c73a9838a06bf7eb
   hermes-engine: 8d2103d6c0176779aea4e25df6bb1410f9946680
-  journifyio-react-native-sdk: efd69ea41d95c6655f3e90542fa8724462a4802e
+  journifyio-react-native-sdk: 24e00a4c254b619b5d4f227252dab4a5b195ee25
+  journifyio-react-native-sdk-plugin-idfa: 271ee253630e3614c4e4e7843e995207a296108a
   journifyio-react-native-sdk-sovran: be2ce508c464773965632a81da47b8e2a7e07bfd
   RCT-Folly: 4464f4d875961fce86008d45f4ecf6cef6de0740
   RCTDeprecation: 4191f6e64b72d9743f6fe1a8a16e89e868f5e9e7

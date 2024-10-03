@@ -44,7 +44,7 @@ export class EventPlugin extends Plugin {
       case JournifyEventType.TRACK:
         result = this.track(result);
         break;
-      case JournifyEventType.PAGE:
+      case JournifyEventType.SCREEN:
         result = this.screen(result);
         break;
       case JournifyEventType.GROUP:
