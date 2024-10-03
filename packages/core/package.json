@@ -1,6 +1,6 @@
 {
   "name": "@journifyio/react-native-sdk",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "description": "Jounrifyio React Native SDK",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
