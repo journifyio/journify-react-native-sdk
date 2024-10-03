@@ -28,14 +28,18 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { createClient } from '@journifyio/react-native-sdk';
 import CustomButton from './CustomButton';
+import { IdfaPlugin } from '@journifyio/react-native-sdk-plugin-idfa';
 
 const client = createClient({
   writeKey: 'wk_2d4mVF4PZNzNfGzfiLdaMkw9rVf',
   cdnHost: 'https://static.journify.dev',
   trackAppLifecycleEvents: true,
   flushInterval: 1,
-  hashPII: true,
+  hashPII: false,
 });
+
+client.add({ plugin: new IdfaPlugin() });
+
 
 type SectionProps = PropsWithChildren<{
   title: string;

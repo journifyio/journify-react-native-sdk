@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@journifyio/react-native-sdk": "file:../packages/core",
+    "@journifyio/react-native-sdk-plugin-idfa": "^1.2.0",
     "@journifyio/react-native-sdk-sovran": "file:../packages/sovran",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "react": "18.3.1",

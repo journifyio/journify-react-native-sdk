@@ -1,7 +1,6 @@
 import { NativeModule, NativeModules, Platform } from 'react-native';
 import type { EventPlugin } from './plugin';
 import type { Timeline } from './timeline';
-import { sha256 } from 'react-native-sha256';
 
 export const getAllPlugins = (timeline: Timeline) => {
   const allPlugins = Object.values(timeline.plugins);
@@ -140,6 +139,7 @@ export async function hashPII(
 }
 
 export async function sha256Hash(input: string): Promise<string> {
+  const sha256 = require('react-native-sha256').sha256;
   if (!input || isSHA256Hash(input)) {
     return input;
   }
