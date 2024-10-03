@@ -19,6 +19,5 @@ module.exports = {
         // These are the available platforms that the package can be downloaded from
         "platforms": ["npm"]
     }]
-  ],
-  debug: true
+  ]
 };

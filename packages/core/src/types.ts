@@ -12,6 +12,7 @@ export type ClientConfig = {
   flushPolicies?: FlushPolicy[];
   collectDeviceId?: boolean;
   trackAppLifecycleEvents?: boolean;
+  hashPII?: boolean;
 } & StoreConfig;
 
 type StoreConfig = {
@@ -89,7 +90,6 @@ export enum FieldMappingSourceType {
 export enum TrackingEventType {
   UNDEFINED = '',
   TRACK_EVENT = 'track',
-  PAGE_EVENT = 'page',
   SCREEN_EVENT = 'screen',
   IDENTIFY_EVENT = 'identify',
   GROUP_EVENT = 'group',

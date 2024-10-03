@@ -147,7 +147,7 @@ export const createStore = <T extends object>(
       clearTimeout(saveTimeout);
     }
     saveTimeout = setTimeout(() => {
-      void (async () => {
+      (async () => {
         try {
           saveTimeout = undefined;
           await persistor.set(storeId, newState);

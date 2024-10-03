@@ -117,14 +117,12 @@ export interface JournifyEvent {
 
 export enum JournifyEventType {
   TRACK = 'track',
-  PAGE = 'page',
   IDENTIFY = 'identify',
   GROUP = 'group',
   SCREEN = 'screen',
 }
 
 export enum JournifyDefaultEvent {
-  PAGE = 'PAGE_EVENT_KEY',
   IDENTIFY = 'IDENTIFY_EVENT_KEY',
   GROUP = 'GROUP_EVENT_KEY',
 }
@@ -168,27 +166,17 @@ export interface Context {
   app?: App;
   device?: Device;
   screen?: Screen;
-  userAgent?: string;
   library?: {
     name: string;
     version: string;
   };
   locale?: string;
-  page?: Page;
   campaign?: UtmCampaign;
   groupId?: string;
   consent?: {
     categoryPreferences: Record<string, boolean>;
   };
   [key: string]: unknown;
-}
-
-interface Page {
-  path?: string;
-  referrer?: string;
-  search?: string;
-  title?: string;
-  url?: string;
 }
 
 interface Session {
