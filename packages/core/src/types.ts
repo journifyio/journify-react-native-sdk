@@ -5,6 +5,7 @@ import { JsonMap, Traits } from './events';
 
 export type ClientConfig = {
   writeKey: string;
+  debug?: boolean;
   apiHost?: string;
   cdnHost?: string;
   flushAt?: number;
@@ -13,6 +14,7 @@ export type ClientConfig = {
   collectDeviceId?: boolean;
   trackAppLifecycleEvents?: boolean;
   hashPII?: boolean;
+  maxBatchSize?: number;
 } & StoreConfig;
 
 type StoreConfig = {
