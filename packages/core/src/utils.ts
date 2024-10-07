@@ -151,3 +151,43 @@ function isSHA256Hash(input: string): boolean {
   const sha256Regex = /^[a-f0-9]{64}$/i;
   return sha256Regex.test(input);
 }
+
+export const chunk = <T>(array: T[], count: number, maxKB?: number): T[][] => {
+  if (!array.length || !count) {
+    return [];
+  }
+
+  let currentChunk = 0;
+  let rollingKBSize = 0;
+  const result: T[][] = array.reduce(
+    (chunks: T[][], item: T, index: number) => {
+      if (maxKB !== undefined) {
+        rollingKBSize += sizeOf(item);
+        // If we overflow chunk until the previous index, else keep going
+        if (rollingKBSize >= maxKB) {
+          chunks[++currentChunk] = [item];
+          return chunks;
+        }
+      }
+
+      if (index !== 0 && index % count === 0) {
+        chunks[++currentChunk] = [item];
+      } else {
+        if (chunks[currentChunk] === undefined) {
+          chunks[currentChunk] = [];
+        }
+        chunks[currentChunk].push(item);
+      }
+
+      return chunks;
+    },
+    []
+  );
+
+  return result;
+};
+
+const sizeOf = (obj: unknown): number => {
+  const size = encodeURI(JSON.stringify(obj)).split(/%..|./).length - 1;
+  return size / 1024;
+};

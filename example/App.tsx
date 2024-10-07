@@ -26,20 +26,22 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { createClient } from '@journifyio/react-native-sdk';
+import {createClient} from '@journifyio/react-native-sdk';
 import CustomButton from './CustomButton';
-import { IdfaPlugin } from '@journifyio/react-native-sdk-plugin-idfa';
+import {IdfaPlugin} from '@journifyio/react-native-sdk-plugin-idfa';
 
 const client = createClient({
+  debug: true,
   writeKey: 'wk_2d4mVF4PZNzNfGzfiLdaMkw9rVf',
+  apiHost: 'https://t.journify.dev',
   cdnHost: 'https://static.journify.dev',
   trackAppLifecycleEvents: true,
-  flushInterval: 1,
+  flushAt: 100,
+  flushInterval: 30,
   hashPII: false,
 });
 
-client.add({ plugin: new IdfaPlugin() });
-
+client.add({plugin: new IdfaPlugin()});
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -93,14 +95,28 @@ function App(): React.JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
             margin: 10,
           }}>
-            <CustomButton title={ "Track Event " + counter } onPress={() => {
-              client.track('buttonPressed ' + counter); 
-              setCounter(counter+1)
-            }} />
-            <CustomButton title="Identity" onPress={() => client.identify('user123', { phone: "632523723", email: "email@email.com"})} />
-              <CustomButton title="Crash" onPress={() => {
-                throw new Error('This is a crash');
-              }} />
+          <CustomButton
+            title={'Track Event ' + counter}
+            onPress={() => {
+              client.track('buttonPressed ' + counter);
+              setCounter(counter + 1);
+            }}
+          />
+          <CustomButton
+            title="Identity"
+            onPress={() =>
+              client.identify('user123', {
+                phone: '632523723',
+                email: 'email@email.com',
+              })
+            }
+          />
+          <CustomButton
+            title="Crash"
+            onPress={() => {
+              throw new Error('This is a crash');
+            }}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
