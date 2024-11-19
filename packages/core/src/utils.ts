@@ -261,7 +261,7 @@ export function unknownToString(
 
 /**
  * Checks if value is a dictionary like object
- * @param value unknown object
+ * @param value unknown object to check
  * @returns typeguard, value is dicitonary
  */
 export const isObject = (value: unknown): value is Record<string, unknown> =>
