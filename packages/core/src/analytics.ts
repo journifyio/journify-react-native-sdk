@@ -639,7 +639,7 @@ export class JournifyClient {
     await this.process(event);
   }
 
-  async identify(userId?: string, userTraits?: Traits) {
+  async identify(userId: string, userTraits?: Traits) {
     if (!userId) {
       throw new Error('userId is required to identify a user');
     }
