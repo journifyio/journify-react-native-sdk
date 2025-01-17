@@ -340,7 +340,8 @@ export async function backoffRetry<T>(
       // Add jitter
       if (jitter) {
         const jitterAmount = Math.random() * backoffDelay;
-        backoffDelay = backoffDelay / 2 + jitterAmount;
+        // prettier-ignore
+        backoffDelay = (backoffDelay / 2) + jitterAmount;
       }
 
       console.warn(
