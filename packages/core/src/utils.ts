@@ -352,5 +352,5 @@ export async function backoffRetry<T>(
   }
 
   // Should never reach here
-  throw new Error('Unexpected error in backoffRetry');
+  throw new Error('Unexpected error in back off retry');
 }
