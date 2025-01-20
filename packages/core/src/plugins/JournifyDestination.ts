@@ -6,8 +6,11 @@ import { DestinationPlugin } from '../plugin';
 import { PluginType } from '../types';
 import { QueueFlushingPlugin } from './QueueFlushingPlugin';
 import { DEFAULT_API_HOST, defaultConfig } from '../constants';
-import { chunk, createPromise } from '../utils';
+import { chunk, createPromise, backoffRetry } from '../utils';
 
+const BACKOFF_RETRIES = 2;
+const BACKOFF_DELAY_MS = 2000; // 2 seconds;
+const BACKOFF_MAX_DELAY_MS = 10000; // 10 seconds;
 const MAX_EVENTS_PER_BATCH = 100;
 const MAX_PAYLOAD_SIZE_IN_KB = 500;
 export const JOURNIFY_DESTINATION_KEY = 'journify';
@@ -55,12 +58,19 @@ export class JournifyDestination extends DestinationPlugin {
       chunkedEvents.map(async (batch: JournifyEvent[]) => {
         console.log(`Sending ${batch.length} events to ${this.getEndpoint()}`);
         try {
-          const res = await uploadEvents({
-            url: this.getEndpoint(),
-            events: batch,
-          });
-          checkResponseForErrors(res);
-          sentEvents = sentEvents.concat(batch);
+          backoffRetry(
+            async () => {
+              const res = await uploadEvents({
+                url: this.getEndpoint(),
+                events: batch,
+              });
+              checkResponseForErrors(res);
+              sentEvents = sentEvents.concat(batch);
+            },
+            BACKOFF_RETRIES,
+            BACKOFF_DELAY_MS,
+            BACKOFF_MAX_DELAY_MS
+          );
         } catch (e) {
           numFailedEvents += batch.length;
           console.error(e);

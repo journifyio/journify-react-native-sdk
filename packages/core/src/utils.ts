@@ -302,3 +302,55 @@ export function deepCompare<T>(a: T, b: T): boolean {
 
   return true;
 }
+
+/**
+ * Utility function to retry a function with backoff
+ * @param fn Function to retry
+ * @param retries Max retries
+ * @param delay Initial delay in milliseconds
+ * @param maxDelay Max delay in milliseconds
+ * @param factor Backoff multiplier
+ * @param jitter Add jitter to delay
+ */
+export async function backoffRetry<T>(
+  fn: () => Promise<T>, // Function to retry
+  retries: number = 2, // Max retries
+  delay: number = 1000, // Initial delay in milliseconds
+  maxDelay: number = 16000, // Max delay in milliseconds
+  factor: number = 2, // Backoff multiplier
+  jitter: boolean = true // Add jitter to delay
+): Promise<T> {
+  let attempt = 0;
+
+  while (attempt < retries) {
+    try {
+      return await fn(); // Attempt the function
+    } catch (error: any) {
+      attempt++;
+      if (attempt >= retries) {
+        throw new Error(
+          `Max retries reached: ${error?.message || 'Unknown error'}`
+        );
+      }
+
+      // Calculate delay with backoff
+      let backoffDelay = delay * Math.pow(factor, attempt - 1);
+      backoffDelay = Math.min(backoffDelay, maxDelay);
+
+      // Add jitter
+      if (jitter) {
+        const jitterAmount = Math.random() * backoffDelay;
+        // prettier-ignore
+        backoffDelay = (backoffDelay / 2) + jitterAmount;
+      }
+
+      console.warn(
+        `Retrying in ${backoffDelay.toFixed(2)}ms... (${attempt}/${retries})`
+      );
+      await new Promise((resolve) => setTimeout(resolve, backoffDelay));
+    }
+  }
+
+  // Should never reach here
+  throw new Error('Unexpected error in back off retry');
+}
