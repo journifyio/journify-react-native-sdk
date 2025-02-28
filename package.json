@@ -16,7 +16,7 @@
     "testAll": "yarn workspaces foreach -A -p run test --passWithNoTests",
     "clean": "yarn workspaces foreach -A -p run clean",
     "typescript": "tsc --noEmit --composite false",
-    "test": "jest --runInBand --detectOpenHandles --forceExit packages/core/src/__tests__/client.test.ts",
+    "test": "jest",
     "lint": "eslint . --max-warnings=0",
     "release": "yarn multi-semantic-release",
     "prepare": "husky"
