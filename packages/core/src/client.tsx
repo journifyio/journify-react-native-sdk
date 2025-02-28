@@ -5,16 +5,16 @@ import { SovranStorage } from './storage/index';
 
 export function createClient(config: ClientConfig) {
   if (!config.writeKey) {
-    throw new Error('write key is required');
+    throw new Error('writeKey is required');
   }
 
-  const segmentStore = new SovranStorage({
+  const journifyStore = new SovranStorage({
     storeId: config.writeKey,
     storePersistor: config.storePersistor,
     storePersistorSaveDelay: config.storePersistorSaveDelay,
   });
 
-  const client = new JournifyClient(config, segmentStore);
+  const client = new JournifyClient(config, journifyStore);
   client.init();
   return client;
 }

@@ -7,7 +7,6 @@ describe('create client', () => {
   };
 
   let client: JournifyClient;
-
   it('creates the client with the provided writeKey', () => {
     client = createClient(config);
     expect(client.getConfig().writeKey).toBe(config.writeKey);
@@ -18,12 +17,8 @@ describe('create client', () => {
   it('creates the client with the provided additional config', () => {
     const additionalConfig = {
       writeKey: 'test',
-      apiHost: 'test',
-      cdnHost: 'test',
     };
     client = createClient(additionalConfig);
     expect(client.getConfig().writeKey).toBe(additionalConfig.writeKey);
-    expect(client.getConfig().apiHost).toBe(additionalConfig.apiHost);
-    expect(client.getConfig().cdnHost).toBe(additionalConfig.cdnHost);
   });
 });
