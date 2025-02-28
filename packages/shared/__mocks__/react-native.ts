@@ -1,9 +1,9 @@
-import type { PlatformOSType } from "react-native";
+import type { PlatformOSType } from 'react-native';
 
 export const AppState = {
   addEventListener: jest.fn(),
   removeEventListener: jest.fn(),
-  currentState: "active",
+  currentState: 'active',
 };
 
 export const Linking = {
@@ -14,28 +14,28 @@ export const Linking = {
 export const NativeModules = {
   JournifyioReactNativeSdk: {
     getContextInfo: jest.fn().mockResolvedValue({
-      appName: "Journify Example",
-      appVersion: "1.0",
-      buildNumber: "1",
-      bundleId: "com.journify.example.analytics",
-      locale: "en_US",
-      networkType: "wifi",
-      osName: "iOS",
-      osVersion: "14.1",
+      appName: 'Journify Example',
+      appVersion: '1.0',
+      buildNumber: '1',
+      bundleId: 'com.journify.example.analytics',
+      locale: 'en_US',
+      networkType: 'wifi',
+      osName: 'iOS',
+      osVersion: '14.1',
       screenHeight: 800,
       screenWidth: 600,
       screenDensity: 2.625,
-      timezone: "Europe/London",
-      manufacturer: "Apple",
-      model: "x86_64",
-      deviceName: "iPhone",
-      deviceId: "123-456-789",
-      deviceType: "phone",
+      timezone: 'Europe/London',
+      manufacturer: 'Apple',
+      model: 'x86_64',
+      deviceName: 'iPhone',
+      deviceId: '123-456-789',
+      deviceType: 'phone',
     }),
   },
   Sovran: {
     getConstants: () => ({
-      ON_STORE_ACTION: "ON_STORE_ACTION",
+      ON_STORE_ACTION: 'ON_STORE_ACTION',
     }),
   },
 };
