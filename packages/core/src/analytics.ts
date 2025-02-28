@@ -166,15 +166,13 @@ export class JournifyClient {
     if (ofType !== undefined) {
       return [...(plugins[ofType] ?? [])];
     }
-    return (
-      [
-        ...this.getPlugins(PluginType.before),
-        ...this.getPlugins(PluginType.enrichment),
-        ...this.getPlugins(PluginType.utility),
-        ...this.getPlugins(PluginType.destination),
-        ...this.getPlugins(PluginType.after),
-      ] ?? []
-    );
+    return [
+      ...this.getPlugins(PluginType.before),
+      ...this.getPlugins(PluginType.enrichment),
+      ...this.getPlugins(PluginType.utility),
+      ...this.getPlugins(PluginType.destination),
+      ...this.getPlugins(PluginType.after),
+    ];
   }
 
   public getConfig(): ClientConfig {
@@ -395,7 +393,7 @@ export class JournifyClient {
       );
       await this.store.settings.set(fromattedSettings);
     } catch (error) {
-      console.error(translateHTTPError(error));
+      translateHTTPError(error);
     }
   }
   async flush(): Promise<void> {
