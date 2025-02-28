@@ -4,6 +4,7 @@
   "description": "Journifyio React Native SDK Plugin IDFA",
   "source": "./src/index.tsx",
   "main": "lib/commonjs/index",
+  "types": "lib/typescript/src/index.d.ts",
   "files": [
     "src",
     "lib",

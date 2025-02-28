@@ -2596,6 +2596,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@journifyio/react-native-sdk-shared@workspace:^, @journifyio/react-native-sdk-shared@workspace:packages/shared":
+  version: 0.0.0-use.local
+  resolution: "@journifyio/react-native-sdk-shared@workspace:packages/shared"
+  dependencies:
+    "@types/jest": "npm:^29.5.10"
+    "@types/node": "npm:^20.9.4"
+    "@types/react-native": "npm:^0.72.6"
+    jest: "npm:^29.7.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  languageName: unknown
+  linkType: soft
+
 "@journifyio/react-native-sdk-sovran@npm:^1.8.0, @journifyio/react-native-sdk-sovran@npm:^1.9.0, @journifyio/react-native-sdk-sovran@workspace:packages/sovran":
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-sovran@workspace:packages/sovran"
@@ -4996,6 +5010,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest@npm:^29.5.10":
+  version: 29.5.14
+  resolution: "@types/jest@npm:29.5.14"
+  dependencies:
+    expect: "npm:^29.0.0"
+    pretty-format: "npm:^29.0.0"
+  checksum: 10/59ec7a9c4688aae8ee529316c43853468b6034f453d08a2e1064b281af9c81234cec986be796288f1bbb29efe943bc950e70c8fa8faae1e460d50e3cf9760f9b
+  languageName: node
+  linkType: hard
+
 "@types/jest@npm:^29.5.8":
   version: 29.5.12
   resolution: "@types/jest@npm:29.5.12"
@@ -5045,6 +5069,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^20.9.4":
+  version: 20.17.19
+  resolution: "@types/node@npm:20.17.19"
+  dependencies:
+    undici-types: "npm:~6.19.2"
+  checksum: 10/4ab6662d3661ad9357d9f1876f5ecaf739fe741d6a1ec5fca3d9183eb3cf87daecb9a3590e8521ad3c460e6257f3aa113585130502519b8ec5fa050c8e6f66ea
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0, @types/normalize-package-data@npm:^2.4.1, @types/normalize-package-data@npm:^2.4.3":
   version: 2.4.4
   resolution: "@types/normalize-package-data@npm:2.4.4"
@@ -5073,6 +5106,16 @@ __metadata:
     "@react-native/virtualized-lists": "npm:^0.72.4"
     "@types/react": "npm:*"
   checksum: 10/be2ee861f8e0ecdca7f7c6f8a6182dc6c6afa2687b2feb663adc35a7e25f8c528eef1aaa3ca7a5c5f5cef12db5306e139e6490998a98ed67b15035d36a9b93ca
+  languageName: node
+  linkType: hard
+
+"@types/react-native@npm:^0.72.6":
+  version: 0.72.8
+  resolution: "@types/react-native@npm:0.72.8"
+  dependencies:
+    "@react-native/virtualized-lists": "npm:^0.72.4"
+    "@types/react": "npm:*"
+  checksum: 10/1029e17b4c2de0a56cc5c67a73459e6ee6e8ffd5f779e6a835889ae9141e4453252832ee3b7c5a7d2fad4f7b79dc7d7f3796ed2cd58855157e1e5ac52e501332
   languageName: node
   linkType: hard
 
@@ -8672,12 +8715,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^8.0.3":
-  version: 8.0.3
-  resolution: "husky@npm:8.0.3"
+"husky@npm:^9.1.7":
+  version: 9.1.7
+  resolution: "husky@npm:9.1.7"
   bin:
-    husky: lib/bin.js
-  checksum: 10/b754cf70fdc97c3b60fec5b80056b9c11436464953b1691bf2b5dcf0081fb6685d2c5f47abb8b2b1c49f504aabea5321fdd6496f8b755d9f6e7525a493406abb
+    husky: bin.js
+  checksum: 10/c2412753f15695db369634ba70f50f5c0b7e5cb13b673d0826c411ec1bd9ddef08c1dad89ea154f57da2521d2605bd64308af748749b27d08c5f563bcd89975f
   languageName: node
   linkType: hard
 
@@ -10005,6 +10048,7 @@ __metadata:
     "@changesets/cli": "npm:^2.26.2"
     "@commitlint/config-conventional": "npm:^18.4.2"
     "@intuit/semantic-release-slack": "npm:^1.0.11"
+    "@journifyio/react-native-sdk-shared": "workspace:^"
     "@react-native-async-storage/async-storage": "npm:^1.19"
     "@react-native/eslint-config": "npm:^0.73.2"
     "@semantic-release/changelog": "npm:^6.0.3"
@@ -10022,7 +10066,7 @@ __metadata:
     commitlint: "npm:^18.4.2"
     conventional-changelog-conventionalcommits: "npm:^7.0.2"
     eslint: "npm:^8.56.0"
-    husky: "npm:^8.0.3"
+    husky: "npm:^9.1.7"
     jest: "npm:^29.7.0"
     metro-react-native-babel-preset: "npm:^0.77.0"
     prettier: "npm:^2.8.8"
