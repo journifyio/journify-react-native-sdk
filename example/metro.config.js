@@ -1,8 +1,8 @@
-const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 const path = require('path');
 const escape = require('escape-string-regexp');
 const exclusionList = require('metro-config/src/defaults/exclusionList');
-const { peerDeps } = require('./workspace')
+const {peerDeps} = require('./workspace');
 const modules = [...peerDeps];
 const root = path.resolve(__dirname, '..');
 
@@ -10,6 +10,9 @@ const defaultSourceExts =
   require('metro-config/src/defaults/defaults').sourceExts;
 
 const config = {
+  server: {
+    port: 9091,
+  },
   projectRoot: __dirname,
   watchFolders: [root],
 
@@ -19,9 +22,8 @@ const config = {
     // So we block them at the root, and alias them to the versions in example's node_modules
     blacklistRE: exclusionList(
       modules.map(
-        (m) =>
-          new RegExp(`^${escape(path.join(root, 'node_modules', m))}\\/.*$`)
-      )
+        m => new RegExp(`^${escape(path.join(root, 'node_modules', m))}\\/.*$`),
+      ),
     ),
 
     extraNodeModules: modules.reduce((acc, name) => {
