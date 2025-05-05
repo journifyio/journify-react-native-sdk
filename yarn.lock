@@ -2661,13 +2661,14 @@ __metadata:
     deepmerge: "npm:^4.3.1"
     jest: "npm:^29.7.0"
     js-base64: "npm:^3.7.5"
+    liquidjs: "npm:^10.21.0"
     lodash: "npm:^4.17.21"
     react-native-builder-bob: "npm:^0.23.1"
     react-native-sha256: "npm:^1.4.10"
     react-native-uuid: "npm:^2.0.2"
     semantic-release: "npm:^22.0.8"
     typescript: "npm:^5.2.2"
-    uuid: "npm:^9.0.1"
+    uuid: "npm:^11.1.0"
   peerDependencies:
     "@journifyio/react-native-sdk-sovran": ^1.8.0
     "@react-native-async-storage/async-storage": 1.x
@@ -6459,6 +6460,13 @@ __metadata:
   version: 1.2.9
   resolution: "command-exists@npm:1.2.9"
   checksum: 10/46fb3c4d626ca5a9d274f8fe241230817496abc34d12911505370b7411999e183c11adff7078dd8a03ec4cf1391290facda40c6a4faac8203ae38c985eaedd63
+  languageName: node
+  linkType: hard
+
+"commander@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "commander@npm:10.0.1"
+  checksum: 10/8799faa84a30da985802e661cc9856adfaee324d4b138413013ef7f087e8d7924b144c30a1f1405475f0909f467665cd9e1ce13270a2f41b141dab0b7a58f3fb
   languageName: node
   linkType: hard
 
@@ -10535,6 +10543,18 @@ __metadata:
   version: 2.0.4
   resolution: "lines-and-columns@npm:2.0.4"
   checksum: 10/81ac2f943f5428a46bd4ea2561c74ba674a107d8e6cc70cd317d16892a36ff3ba0dc6e599aca8b6f8668d26c85288394c6edf7a40e985ca843acab3701b80d4c
+  languageName: node
+  linkType: hard
+
+"liquidjs@npm:^10.21.0":
+  version: 10.21.0
+  resolution: "liquidjs@npm:10.21.0"
+  dependencies:
+    commander: "npm:^10.0.0"
+  bin:
+    liquid: bin/liquid.js
+    liquidjs: bin/liquid.js
+  checksum: 10/523e01be293be0ee8c17e99267b0a6e8604aba415dbaa49c8b36bed865a762903981539da220ad6767ac29a13fcd6cf657d2ded8be1e34d77a31e93c618e3fec
   languageName: node
   linkType: hard
 
@@ -14994,6 +15014,15 @@ __metadata:
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: 10/5d6949693d58cb2e636a84f3ee1c6e7b2f9c16cb1d42d0ecb386d8c025c69e327205aa1c69e2868cc06a01e5e20681fbba55a4e0ed0cce913d60334024eae798
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "uuid@npm:11.1.0"
+  bin:
+    uuid: dist/esm/bin/uuid
+  checksum: 10/d2da43b49b154d154574891ced66d0c83fc70caaad87e043400cf644423b067542d6f3eb641b7c819224a7cd3b4c2f21906acbedd6ec9c6a05887aa9115a9cf5
   languageName: node
   linkType: hard
 

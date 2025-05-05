@@ -483,3 +483,14 @@ export function SetValues(obj: object, key: string, sourceValue: any): object {
 
   return SetValue(obj, arrayPath, array);
 }
+
+export function GetCurrentUtcDate(): string {
+  const currentDate = new Date();
+  const year = currentDate.getUTCFullYear();
+  const month = String(currentDate.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+  const day = String(currentDate.getUTCDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+export function GetCurrentUtcTime(): string {
+  return new Date().toISOString();
+}

@@ -62,10 +62,11 @@
     "@segment/tsub": "^2",
     "deepmerge": "^4.3.1",
     "js-base64": "^3.7.5",
+    "liquidjs": "^10.21.0",
     "lodash": "^4.17.21",
     "react-native-sha256": "^1.4.10",
     "react-native-uuid": "^2.0.2",
-    "uuid": "^9.0.1"
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.16",
