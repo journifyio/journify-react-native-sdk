@@ -1,0 +1,47 @@
+import { Adjust, AdjustEvent } from 'react-native-adjust';
+import type { JournifyEvent, Sync } from '@journifyio/react-native-sdk';
+import { extract, mappedCustomEventToken } from '../util';
+
+export default (event: JournifyEvent, settings: Sync) => {
+  const anonId = event.anonymousId;
+  if (anonId !== undefined && anonId !== null && anonId.length > 0) {
+    //addSessionPartnerParameter has been replaced with addGlobalPartnerParameter in v5
+    //TO DO : Remove commented lines in next release
+    //Adjust.addSessionPartnerParameter('anonymous_id', anonId);
+    Adjust.addGlobalPartnerParameter('anonymous_id', anonId);
+  }
+  if (!event.event) {
+    return;
+  }
+
+  const token = mappedCustomEventToken(event.event, settings);
+
+  if (token !== undefined && token !== null) {
+    const adjEvent = new AdjustEvent(token);
+
+    const properties = event.properties;
+    if (properties !== undefined && properties !== null) {
+      Object.entries(properties).forEach(([key, value]) => {
+        adjEvent.addCallbackParameter(key, value as string);
+      });
+
+      const revenue = extract<number>('revenue', properties);
+      const currency = extract<string>('currency', properties, 'USD');
+      const orderId = extract<string>('orderId', properties);
+
+      if (
+        revenue !== undefined &&
+        revenue !== null &&
+        currency !== undefined &&
+        currency !== null
+      ) {
+        adjEvent.setRevenue(revenue, currency);
+      }
+
+      if (orderId !== undefined && orderId !== null) {
+        adjEvent.setTransactionId(orderId);
+      }
+    }
+    Adjust.trackEvent(adjEvent);
+  }
+};

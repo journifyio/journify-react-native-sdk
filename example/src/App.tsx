@@ -15,19 +15,21 @@ import {IdfaPlugin} from '@journifyio/react-native-sdk-plugin-idfa';
 import Home from './Home';
 import SecondPage from './SecondPage';
 import Modal from './Modal';
+import {AdjustPlugin} from '@journifyio/react-native-sdk-plugin-adjust';
 
 const config = {
   debug: true,
-  writeKey: 'wk_2d4mVF4PZNzNfGzfiLdaMkw9rVf',
-  apiHost: 'https://t.journify.dev',
-  cdnHost: 'https://static.journify.dev',
-  trackAppLifecycleEvents: true,
-  flushInterval: 100,
+  writeKey: 'wk_2w52dWa6Uv4XsyfC958ximVWFhz',
+  apiHost: 'http://localhost:8082',
+  cdnHost: 'https://local.journify.dev',
+  trackAppLifecycleEvents: false,
+  flushInterval: 1,
   hashPII: false,
 };
 const journifyClient = createClient(config);
 
 journifyClient.add({plugin: new IdfaPlugin()});
+journifyClient.add({plugin: new AdjustPlugin()});
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
