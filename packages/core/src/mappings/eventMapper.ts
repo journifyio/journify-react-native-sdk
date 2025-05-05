@@ -72,7 +72,6 @@ export class DefaultEventMapper implements IEventMapper {
     if (this.mappings.length === 0) {
       return { dstEventName: event.event, filters: [] };
     }
-
     // Find matching source event mapping
     const eventMapping = this.mappings.find(
       (mapping) => mapping.event_name === event.event
@@ -94,7 +93,7 @@ export class DefaultEventMapper implements IEventMapper {
       dstEventMapping.filters &&
       !this.matchesAllFilters(event, dstEventMapping.filters)
     ) {
-      console.log(`Event does not match all filters for event: ${event.name}`);
+      console.log(`Event does not match all filters for event: ${event.event}`);
       return null;
     }
 

@@ -48,7 +48,5 @@ export default (event: JournifyEvent, _: Sync) => {
       adjEvent.setDeduplicationId(eventId);
     }
   }
-  console.log('Journify Event Properties', JSON.stringify(properties, null, 2));
-  console.log('Adjust trackEvent', JSON.stringify(adjEvent, null, 2));
   Adjust.trackEvent(adjEvent);
 };

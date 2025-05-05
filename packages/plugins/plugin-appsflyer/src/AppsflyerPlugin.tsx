@@ -31,7 +31,7 @@ export class AppsflyerPlugin extends DestinationPlugin {
     }
   }
   type = PluginType.destination;
-  key = 'AppsFlyer';
+  key = 'appsflyer';
   is_adset = false;
   is_adset_id = false;
   is_ad_id = false;
@@ -42,6 +42,7 @@ export class AppsflyerPlugin extends DestinationPlugin {
   timeToWaitForATTUserAuthorization = 60;
 
   async update(settings: Sync, _: UpdateType): Promise<void> {
+    super.update(settings, _);
     const defaultOpts = {
       isDebug: false,
       timeToWaitForATTUserAuthorization: this.timeToWaitForATTUserAuthorization,
@@ -103,17 +104,18 @@ export class AppsflyerPlugin extends DestinationPlugin {
   }
 
   async track(event: JournifyEvent) {
-    const mapped = this.fieldMapper?.map(event);
-    event.properties = { ...event.properties, ...mapped };
-    const dstEventMapping = this.eventMapper?.map(event);
+    const clonedEvent = { ...event };
+    const mapped = this.fieldMapper?.map(clonedEvent);
+    clonedEvent.properties = { ...clonedEvent.properties, ...mapped };
+    const dstEventMapping = this.eventMapper?.map(clonedEvent);
     if (!dstEventMapping) {
       console.warn(
         'AppsFlyer event not found. Please check your event mappings.'
       );
       return event;
     }
-    event.name = dstEventMapping.dstEventName;
-    await track(event);
+    clonedEvent.name = dstEventMapping.dstEventName;
+    await track(clonedEvent);
     return event;
   }
 
@@ -194,4 +196,7 @@ export class AppsflyerPlugin extends DestinationPlugin {
       }
     });
   };
+  reset(): void | Promise<void> {
+    super.reset();
+  }
 }

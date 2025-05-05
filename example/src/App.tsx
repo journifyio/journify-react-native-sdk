@@ -16,6 +16,7 @@ import Home from './Home';
 import SecondPage from './SecondPage';
 import Modal from './Modal';
 import {AdjustPlugin} from '@journifyio/react-native-sdk-plugin-adjust';
+import {AppsflyerPlugin} from '@journifyio/react-native-sdk-plugin-appsflyer';
 
 const config = {
   debug: true,
@@ -30,6 +31,7 @@ const journifyClient = createClient(config);
 
 journifyClient.add({plugin: new IdfaPlugin()});
 journifyClient.add({plugin: new AdjustPlugin()});
+journifyClient.add({plugin: new AppsflyerPlugin()});
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
