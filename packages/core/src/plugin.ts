@@ -1,7 +1,12 @@
 import { JournifyClient } from './analytics';
 import { JournifyEventType, type JournifyEvent } from './events';
 import { Timeline } from './timeline';
-import { PluginType, type Sync } from './types';
+import { PluginType, UpdateType, type Sync } from './types';
+import {
+  createFieldMapper,
+  DefaultFieldMapper,
+  IFieldMapper,
+} from './mappings/fieldMapper';
 
 export class Plugin {
   // default to utility to avoid automatic processing
@@ -12,7 +17,7 @@ export class Plugin {
     this.analytics = analytics;
   }
 
-  update(_settings: Sync) {
+  update(_settings: Sync, _type: UpdateType) {
     // do nothing by default, user can override.
   }
 
@@ -96,6 +101,18 @@ export class DestinationPlugin extends EventPlugin {
   key = '';
 
   timeline = new Timeline();
+  // @ts-ignore
+  fieldMapper?: IFieldMapper = undefined;
+
+  update(settings: Sync, _type: UpdateType): void {
+    if (settings === undefined || settings === null) {
+      return;
+    }
+    const fieldMappings = settings.field_mappings;
+    if (fieldMappings !== undefined && fieldMappings !== null) {
+      this.fieldMapper = createFieldMapper(DefaultFieldMapper, fieldMappings);
+    }
+  }
 
   /**
      Adds a new plugin to the currently loaded set.
