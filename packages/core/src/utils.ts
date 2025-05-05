@@ -23,7 +23,7 @@ export const getPluginsWithFlush = (timeline: Timeline) => {
 
 export const createPromise = <T>(
   timeout: number | undefined = undefined,
-  _errorHandler: (err: Error) => void = (_: Error) => {
+  _errorHandler: (err: Error) => void = (_err: Error) => {
     //
   }
 ): { promise: Promise<T>; resolve: (value: T) => void } => {
