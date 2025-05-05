@@ -1,4 +1,9 @@
 PODS:
+  - Adjust (5.1.1):
+    - Adjust/Adjust (= 5.1.1)
+  - Adjust/Adjust (5.1.1):
+    - AdjustSignature (= 3.35.2)
+  - AdjustSignature (3.35.2)
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.75.3)
@@ -1281,6 +1286,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-adjust (5.1.0):
+    - Adjust (= 5.1.1)
+    - React-Core
   - react-native-get-random-values (1.11.0):
     - React-Core
   - react-native-safe-area-context (5.2.0):
@@ -1757,6 +1765,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
+  - react-native-adjust (from `../node_modules/react-native-adjust`)
   - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-nativeconfig (from `../node_modules/react-native/ReactCommon`)
@@ -1795,6 +1804,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Adjust
+    - AdjustSignature
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -1875,6 +1886,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
+  react-native-adjust:
+    :path: "../node_modules/react-native-adjust"
   react-native-get-random-values:
     :path: "../node_modules/react-native-get-random-values"
   react-native-safe-area-context:
@@ -1947,6 +1960,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  Adjust: 5f5e998cf1446d44d93f91ec8b7b7dd40eaa922d
+  AdjustSignature: 23b9e5d4adcadffc303bb6b410fde617dd88504f
   boost: 4cb898d0bf20404aab1850c656dcea009429d6c1
   DoubleConversion: 76ab83afb40bddeeee456813d9c04f67f78771b5
   FBLazyVector: 7b438dceb9f904bd85ca3c31d64cce32a035472b
@@ -1956,7 +1971,7 @@ SPEC CHECKSUMS:
   journifyio-react-native-sdk: 5a4cee12b3315a07f8565cf52221e6920c25432d
   journifyio-react-native-sdk-plugin-idfa: 49de0a47c39fbfd8b485a3ff96e9949703bd9c65
   journifyio-react-native-sdk-sovran: d2f1dc47d97fc5ab5e50a4feca653bf39a66cea3
-  RCT-Folly: 4464f4d875961fce86008d45f4ecf6cef6de0740
+  RCT-Folly: 34124ae2e667a0e5f0ea378db071d27548124321
   RCTDeprecation: 4191f6e64b72d9743f6fe1a8a16e89e868f5e9e7
   RCTRequired: 9bb589570f2bb3abc6518761e3fd1ad9b7f7f06c
   RCTTypeSafety: 1c1a8741c86df0a0ac1a99cf3fb0e29eedbc2c88
@@ -1985,6 +2000,7 @@ SPEC CHECKSUMS:
   React-logger: 7e56c9eceafd7f45e98c16cb42ff3c9966c67119
   React-Mapbuffer: e68dd904f0f3a84dd35989288ed3bcf5e37f9737
   React-microtasksnativemodule: ca8806e64625be04b8f3d9f31f66508d02c42555
+  react-native-adjust: 797a7c92ef21b156b87ce96e8074b7d0ded8066c
   react-native-get-random-values: d16467cf726c618e9c7a8c3c39c31faa2244bbba
   react-native-safe-area-context: 3e33e7c43c8b74dba436a5a32651cb8d7064c740
   React-nativeconfig: 4a9543185905fe41014c06776bf126083795aed9

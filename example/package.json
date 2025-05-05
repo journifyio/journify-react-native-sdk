@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --port=9091",
+    "ios": "react-native run-ios --port=9091 --udid=1CA4C445-C108-4BC9-9E24-151F08870078",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"
   },
   "dependencies": {
     "@journifyio/react-native-sdk": "file:../packages/core",
+    "@journifyio/react-native-sdk-plugin-adjust": "file:../packages/plugins/plugin-adjust",
     "@journifyio/react-native-sdk-plugin-idfa": "file:../packages/plugins/plugin-idfa",
     "@journifyio/react-native-sdk-sovran": "file:../packages/sovran",
     "@react-native-async-storage/async-storage": "^2.0.0",
@@ -19,6 +20,7 @@
     "@react-navigation/stack": "^7.1.1",
     "react": "18.3.1",
     "react-native": "0.75.3",
+    "react-native-adjust": "^5.1.0",
     "react-native-gesture-handler": "^2.24.0",
     "react-native-get-random-values": "^1.11.0",
     "react-native-reanimated": "^3.17.0",
