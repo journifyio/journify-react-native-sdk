@@ -1,52 +1,51 @@
-# @segment/analytics-react-native-plugin-adjust
+# @journifyio/react-native-sdk-plugin-adjust
 
 `DestinationPlugin` for [Adjust](http://adjust.com/). Wraps [`react-native-adjust`](https://github.com/adjust/react_native_sdk).
 
-
 ## Installation
 
-You need to install the `@segment/analytics-react-native-plugin-adjust` and the `react-native-adjust` dependency.
+You need to install the `@journifyio/react-native-sdk-plugin-adjust` and the `react-native-adjust` dependency.
 
 Using NPM:
+
 ```bash
-npm install --save @segment/analytics-react-native-plugin-adjust react-native-adjust
+npm install --save @journifyio/react-native-sdk-plugin-adjust react-native-adjust
 ```
 
 Using Yarn:
+
 ```bash
-yarn add @segment/analytics-react-native-plugin-adjust react-native-adjust
+yarn add @journifyio/react-native-sdk-plugin-adjust react-native-adjust
 ```
 
 Run `pod install` after the installation to autolink the Adjust SDK.
 
 See [React Native SDK of Adjust](https://github.com/adjust/react_native_sdk) for more details of this dependency.
+
 ## Usage
 
-Follow the [instructions for adding plugins](https://github.com/segmentio/analytics-react-native#adding-plugins) on the main Analytics client:
+Follow the [instructions for adding plugins](https://github.com/journifyio/journify-react-native-sdk?tab=readme-ov-file#adding-plugins) on the main Analytics client:
 
 In your code where you initialize the analytics client call the `.add(plugin)` method with an `AdjustPlugin` instance:
 
 ```ts
-import { createClient } from '@segment/analytics-react-native';
+import { createClient } from '@journifyio/react-native-sdk';
 
-import { AdjustPlugin } from '@segment/analytics-react-native-plugin-adjust';
+import { AdjustPlugin } from '@journifyio/react-native-sdk-plugin-adjust';
 
-const segmentClient = createClient({
-  writeKey: 'SEGMENT_KEY'
+const journifyClient = createClient({
+  writeKey: 'WRITE_KEY',
 });
 
-segmentClient.add({ plugin: new AdjustPlugin() });
+journifyClient.add({ plugin: new AdjustPlugin() });
 ```
 
-## Support
+## Contributing
 
-Please use Github issues, Pull Requests, or feel free to reach out to our [support team](https://segment.com/help/).
-
-## Integrating with Segment
-
-Interested in integrating your service with us? Check out our [Partners page](https://segment.com/partners/) for more details.
+See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## License
+
 ```
 MIT License
 
