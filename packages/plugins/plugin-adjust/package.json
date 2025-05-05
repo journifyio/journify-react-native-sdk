@@ -34,15 +34,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/segmentio/analytics-react-native.git",
-    "directory": "packages/core"
+    "url": "git+https://github.com/journifyio/journifyio-react-native-sdk.git",
+    "directory": "packages/plugins/plugin-adjust"
   },
-  "author": "Segment <hello@segment.com> (https://segment.com/)",
+  "author": "Iliyass Hamza <iliyass.hamza@journify.io> (https://github.com/Iliyass)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/segmentio/analytics-react-native/issues"
+    "url": "https://github.com/journifyio/journifyio-react-native-sdk/issues"
   },
-  "homepage": "https://github.com/segmentio/analytics-react-native/tree/master/packages/plugins/plugin-adjust#readme",
+  "homepage": "https://github.com/journifyio/journifyio-react-native-sdk/tree/master/packages/plugins/plugin-adjust#readme",
   "peerDependencies": {
     "@journifyio/react-native-sdk": "^1.10.0",
     "react-native-adjust": "^5.1.0"
