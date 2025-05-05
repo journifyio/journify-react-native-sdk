@@ -1,43 +1,43 @@
-# @journifyio/react-native-sdk-plugin-firebase
+# @journifyio/react-native-sdk-plugin--clevertap
 
-`DestinationPlugin` for [Firebase](https://firebase.google.com). Wraps [`react-native-firebase`](https://github.com/invertase/react-native-firebase).
+`DestinationPlugin` for [CleverTap](https://clevertap.com/). Wraps [`clevertap-react-native`](https://github.com/CleverTap/clevertap-react-native).
 
 ## Installation
 
-You need to install the `@journifyio/react-native-sdk-plugin-firebase` and its dependencies: `@react-native-firebase/app` and `@react-native-firebase/analytics`
+You need to install the `@journifyio/react-native-sdk-plugin--clevertap` and the `clevertap-react-native` dependency.
 
 Using NPM:
 
 ```bash
-npm install --save @journifyio/react-native-sdk-plugin-firebase @react-native-firebase/app @react-native-firebase/analytics
+npm install --save @journifyio/react-native-sdk-plugin--clevertap clevertap-react-native
 ```
 
 Using Yarn:
 
 ```bash
-yarn add @journifyio/react-native-sdk-plugin-firebase @react-native-firebase/app @react-native-firebase/analytics
+yarn add @journifyio/react-native-sdk-plugin--clevertap clevertap-react-native
 ```
 
-Run `pod install` after the installation to autolink the Firebase SDK.
+Run `pod install` after the installation to autolink the CleverTap SDK.
 
-See [React Native Firebase](https://rnfirebase.io) and [React Native Firebase Analytics](https://rnfirebase.io/analytics/usage) for more details of Firebase packages.
+See [CleverTap React Native SDK](https://github.com/CleverTap/clevertap-react-native/blob/master/docs/install.md) for more details of this dependency.
 
 ## Usage
 
 Follow the [instructions for adding plugins](https://github.com/journifyio/journify-react-native-sdk?tab=readme-ov-file#adding-plugins) on the main Analytics client:
 
-In your code where you initialize the analytics client call the `.add(plugin)` method with a `FirebasePlugin` instance:
+In your code where you initialize the analytics client call the `.add(plugin)` method with a `ClevertapPlugin` instance:
 
 ```ts
 import { createClient } from '@journifyio/react-native-sdk';
 
-import { FirebasePlugin } from '@journifyio/react-native-sdk-plugin-firebase';
+import { ClevertapPlugin } from '@journifyio/react-native-sdk-plugin--clevertap';
 
 const journifyClient = createClient({
   writeKey: 'WRITE_KEY',
 });
 
-journifyClient.add({ plugin: new FirebasePlugin() });
+journifyClient.add({ plugin: new ClevertapPlugin() });
 ```
 
 ## License
