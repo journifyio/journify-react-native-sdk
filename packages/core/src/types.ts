@@ -15,6 +15,7 @@ export type ClientConfig = {
   trackAppLifecycleEvents?: boolean;
   hashPII?: boolean;
   maxBatchSize?: number;
+  trackDeepLinks?: boolean;
 } & StoreConfig;
 
 type StoreConfig = {

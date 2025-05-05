@@ -2598,6 +2598,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@journifyio/react-native-sdk-plugin-appsflyer@workspace:packages/plugins/plugin-appsflyer":
+  version: 0.0.0-use.local
+  resolution: "@journifyio/react-native-sdk-plugin-appsflyer@workspace:packages/plugins/plugin-appsflyer"
+  dependencies:
+    "@journifyio/react-native-sdk": "npm:^1.10.0"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.9.0"
+    jest: "npm:^29.7.0"
+    react-native-appsflyer: "npm:^6.9.4"
+    react-native-builder-bob: "npm:^0.23.1"
+    rimraf: "npm:^5.0.5"
+    semantic-release: "npm:^22.0.8"
+    typescript: "npm:^5.2.2"
+  peerDependencies:
+    "@journifyio/react-native-sdk": ^1.10.0
+    react-native-appsflyer: ^6.9.4
+  languageName: unknown
+  linkType: soft
+
 "@journifyio/react-native-sdk-plugin-idfa@workspace:packages/plugins/plugin-idfa":
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-plugin-idfa@workspace:packages/plugins/plugin-idfa"
@@ -12889,6 +12907,13 @@ __metadata:
   version: 5.1.0
   resolution: "react-native-adjust@npm:5.1.0"
   checksum: 10/0c3c2291189e732d5683e5b812aceab7e4b538ca985d9c9bedbfd74b9f016322ff49bfba51d0d5f315682359c3d9ed57127028dc41eca5185a3d807e5385d504
+  languageName: node
+  linkType: hard
+
+"react-native-appsflyer@npm:^6.9.4":
+  version: 6.16.2
+  resolution: "react-native-appsflyer@npm:6.16.2"
+  checksum: 10/577debe380a0154b7c63cb0ddcb50e5de26d4a6d6f915ac45c63ee0edb442e7cfbb30cdb97559a2fe246393c13b57f70aee76166079145ae95376a86dded599f
   languageName: node
   linkType: hard
 
