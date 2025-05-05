@@ -79,3 +79,8 @@ export enum FilterOperator {
   /** Checks if the value is less than or equal to the specified value */
   LESS_THAN_OR_EQ = '<=',
 }
+
+export interface DestinationEventMapping {
+  dstEventName: string;
+  filters: EventFilter[];
+}

@@ -92,6 +92,14 @@ export class AdjustPlugin extends DestinationPlugin {
   track(event: JournifyEvent) {
     const mapped = this.fieldMapper?.map(event);
     event.properties = { ...event.properties, ...mapped };
+    const dstEventMapping = this.eventMapper?.map(event);
+    if (!dstEventMapping) {
+      console.warn(
+        'Adjust event token not found. Please check your event mappings.'
+      );
+      return event;
+    }
+    event.event = dstEventMapping.dstEventName;
     track(event, this.settings!);
     return event;
   }

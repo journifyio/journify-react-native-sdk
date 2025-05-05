@@ -7,6 +7,11 @@ import {
   DefaultFieldMapper,
   IFieldMapper,
 } from './mappings/fieldMapper';
+import {
+  createEventMapper,
+  IEventMapper,
+  DefaultEventMapper,
+} from './mappings/eventMapper';
 
 export class Plugin {
   // default to utility to avoid automatic processing
@@ -103,6 +108,7 @@ export class DestinationPlugin extends EventPlugin {
   timeline = new Timeline();
   // @ts-ignore
   fieldMapper?: IFieldMapper = undefined;
+  eventMapper?: IEventMapper = undefined;
 
   update(settings: Sync, _type: UpdateType): void {
     if (settings === undefined || settings === null) {
@@ -111,6 +117,10 @@ export class DestinationPlugin extends EventPlugin {
     const fieldMappings = settings.field_mappings;
     if (fieldMappings !== undefined && fieldMappings !== null) {
       this.fieldMapper = createFieldMapper(DefaultFieldMapper, fieldMappings);
+    }
+    const eventMappings = settings.event_mappings;
+    if (eventMappings !== undefined && eventMappings !== null) {
+      this.eventMapper = createEventMapper(DefaultEventMapper, eventMappings);
     }
   }
 
