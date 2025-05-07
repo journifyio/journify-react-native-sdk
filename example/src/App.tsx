@@ -24,9 +24,9 @@ import {FirebasePlugin} from '@journifyio/react-native-sdk-plugin-firebase';
 const config = {
   debug: true,
   writeKey: 'wk_2w52dWa6Uv4XsyfC958ximVWFhz',
-  apiHost: 'http://localhost:8082',
-  cdnHost: 'https://local.journify.dev',
-  trackAppLifecycleEvents: false,
+  apiHost: 'https://t.journify.dev',
+  cdnHost: 'https://staging.journify.dev',
+  trackAppLifecycleEvents: true,
   flushInterval: 1,
   hashPII: false,
 };
