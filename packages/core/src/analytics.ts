@@ -398,6 +398,9 @@ export class JournifyClient {
         (acc, sync) => ({ ...acc, [sync.destination_app]: sync }),
         {}
       );
+      console.log(
+        `[JournifyClient] Plugins loaded: ${Object.keys(fromattedSettings)}`
+      );
       await this.store.settings.set(fromattedSettings);
     } catch (error) {
       translateHTTPError(error);

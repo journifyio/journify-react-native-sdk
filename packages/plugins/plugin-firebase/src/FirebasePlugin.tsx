@@ -64,7 +64,6 @@ export class FirebasePlugin extends DestinationPlugin {
         return event;
       }
       clonedEvent.event = dstEventMapping.dstEventName;
-      console.log(`[${this.key}] clonedEvent`, clonedEvent);
       await track(clonedEvent);
     } catch (error) {
       console.error(`[${this.key}] Error on Firebase Track`, error);

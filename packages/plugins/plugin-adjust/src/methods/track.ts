@@ -1,8 +1,8 @@
 import { Adjust, AdjustEvent } from 'react-native-adjust';
-import type { JournifyEvent, Sync } from '@journifyio/react-native-sdk';
+import type { JournifyEvent } from '@journifyio/react-native-sdk';
 import { extract } from '../util';
 
-export default (event: JournifyEvent, _: Sync) => {
+export default (event: JournifyEvent) => {
   const anonId = event.anonymousId;
   const eventId = event.messageId;
   if (anonId !== undefined && anonId !== null && anonId.length > 0) {

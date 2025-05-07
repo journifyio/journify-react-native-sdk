@@ -96,12 +96,12 @@ export class AdjustPlugin extends DestinationPlugin {
     const dstEventMapping = this.eventMapper?.map(clonedEvent);
     if (!dstEventMapping) {
       console.warn(
-        'Adjust event token not found. Please check your event mappings.'
+        '[Adjust] event token not found. Please check your event mappings.'
       );
       return event;
     }
     clonedEvent.event = dstEventMapping.dstEventName;
-    track(clonedEvent, this.settings!);
+    track(clonedEvent);
     return event;
   }
 

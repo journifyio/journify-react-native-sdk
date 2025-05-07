@@ -84,15 +84,13 @@ export class AppsflyerPlugin extends DestinationPlugin {
     }
     if (!this.hasInitialized) {
       try {
-        const value = await appsFlyer.initSdk({
+        await appsFlyer.initSdk({
           devKey: devKey as string,
           appId: appId as string,
           onDeepLinkListener: clientConfig?.trackDeepLinks === true,
           ...defaultOpts,
         });
-        console.log(
-          `[${this.key}] initialized with value: ${JSON.stringify(value)}`
-        );
+
         this.hasInitialized = true;
       } catch (error) {
         const message = ' failed to initialize';
