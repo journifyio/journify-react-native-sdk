@@ -1,21 +1,21 @@
-# @journifyio/react-native-sdk-plugin--clevertap
+# @journifyio/react-native-sdk-plugin-clevertap
 
 `DestinationPlugin` for [CleverTap](https://clevertap.com/). Wraps [`clevertap-react-native`](https://github.com/CleverTap/clevertap-react-native).
 
 ## Installation
 
-You need to install the `@journifyio/react-native-sdk-plugin--clevertap` and the `clevertap-react-native` dependency.
+You need to install the `@journifyio/react-native-sdk-plugin-clevertap` and the `clevertap-react-native` dependency.
 
 Using NPM:
 
 ```bash
-npm install --save @journifyio/react-native-sdk-plugin--clevertap clevertap-react-native
+npm install --save @journifyio/react-native-sdk-plugin-clevertap clevertap-react-native
 ```
 
 Using Yarn:
 
 ```bash
-yarn add @journifyio/react-native-sdk-plugin--clevertap clevertap-react-native
+yarn add @journifyio/react-native-sdk-plugin-clevertap clevertap-react-native
 ```
 
 Run `pod install` after the installation to autolink the CleverTap SDK.
@@ -31,7 +31,7 @@ In your code where you initialize the analytics client call the `.add(plugin)` m
 ```ts
 import { createClient } from '@journifyio/react-native-sdk';
 
-import { ClevertapPlugin } from '@journifyio/react-native-sdk-plugin--clevertap';
+import { ClevertapPlugin } from '@journifyio/react-native-sdk-plugin-clevertap';
 
 const journifyClient = createClient({
   writeKey: 'WRITE_KEY',

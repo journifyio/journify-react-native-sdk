@@ -17,6 +17,9 @@ import SecondPage from './SecondPage';
 import Modal from './Modal';
 import {AdjustPlugin} from '@journifyio/react-native-sdk-plugin-adjust';
 import {AppsflyerPlugin} from '@journifyio/react-native-sdk-plugin-appsflyer';
+import {MoengagePlugin} from '@journifyio/react-native-sdk-plugin-moengage';
+import {ClevertapPlugin} from '@journifyio/react-native-sdk-plugin-clevertap';
+import {FirebasePlugin} from '@journifyio/react-native-sdk-plugin-firebase';
 
 const config = {
   debug: true,
@@ -32,6 +35,9 @@ const journifyClient = createClient(config);
 journifyClient.add({plugin: new IdfaPlugin()});
 journifyClient.add({plugin: new AdjustPlugin()});
 journifyClient.add({plugin: new AppsflyerPlugin()});
+journifyClient.add({plugin: new MoengagePlugin()});
+journifyClient.add({plugin: new ClevertapPlugin()});
+journifyClient.add({plugin: new FirebasePlugin()});
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();

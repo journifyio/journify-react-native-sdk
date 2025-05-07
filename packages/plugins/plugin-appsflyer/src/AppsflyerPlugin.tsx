@@ -61,7 +61,7 @@ export class AppsflyerPlugin extends DestinationPlugin {
     )?.value;
     if (devKey === undefined) {
       console.error(
-        'AppsFlyer dev key is required. Please check your settings.'
+        `[${this.key}] dev key is required. Please check your settings.`
       );
       return;
     }
@@ -84,16 +84,19 @@ export class AppsflyerPlugin extends DestinationPlugin {
     }
     if (!this.hasInitialized) {
       try {
-        await appsFlyer.initSdk({
+        const value = await appsFlyer.initSdk({
           devKey: devKey as string,
           appId: appId as string,
           onDeepLinkListener: clientConfig?.trackDeepLinks === true,
           ...defaultOpts,
         });
+        console.log(
+          `[${this.key}] initialized with value: ${JSON.stringify(value)}`
+        );
         this.hasInitialized = true;
       } catch (error) {
-        const message = 'AppsFlyer failed to initialize';
-        console.warn(`${message}: ${JSON.stringify(error)}`);
+        const message = ' failed to initialize';
+        console.warn(`[${this.key}] ${message}: ${JSON.stringify(error)}`);
       }
     }
   }
@@ -110,7 +113,7 @@ export class AppsflyerPlugin extends DestinationPlugin {
     const dstEventMapping = this.eventMapper?.map(clonedEvent);
     if (!dstEventMapping) {
       console.warn(
-        'AppsFlyer event not found. Please check your event mappings.'
+        `[${this.key}] event not found. Please check your event mappings.`
       );
       return event;
     }
@@ -151,15 +154,21 @@ export class AppsflyerPlugin extends DestinationPlugin {
           this.analytics
             ?.track('Install Attributed', properties)
             .then(() =>
-              console.info('Sent Install Attributed event to Segment')
+              console.info(
+                `[${this.key}] Sent Install Attributed event to Journify`
+              )
             );
         } else {
-          console.info('Sent Organic Install event to Segment');
+          console.info(`[${this.key}] Sent Organic Install event to Journify`);
           this.analytics
             ?.track('Organic Install', {
               provider: 'AppsFlyer',
             })
-            .then(() => console.info('Sent Organic Install event to Segment'));
+            .then(() =>
+              console.info(
+                `[${this.key}] Sent Organic Install event to Journify`
+              )
+            );
         }
       }
     });

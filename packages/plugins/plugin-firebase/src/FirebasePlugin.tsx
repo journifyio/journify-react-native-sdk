@@ -12,6 +12,10 @@ export class FirebasePlugin extends DestinationPlugin {
   type = PluginType.destination;
   key = 'firebase';
 
+  constructor() {
+    super();
+    firebaseAnalytics().setAnalyticsCollectionEnabled(true);
+  }
   async identify(event: JournifyEvent) {
     if (event.userId !== undefined) {
       await firebaseAnalytics().setUserId(event.userId);
@@ -26,7 +30,7 @@ export class FirebasePlugin extends DestinationPlugin {
         (acc: Record<string, string>, trait) => {
           if (checkType(eventTraits[trait])) {
             console.warn(
-              'We detected an object or array data type. Firebase does not accept nested traits.'
+              `[${this.key}] We detected an object or array data type. Firebase does not accept nested traits.`
             );
 
             return acc;
@@ -55,14 +59,15 @@ export class FirebasePlugin extends DestinationPlugin {
       const dstEventMapping = this.eventMapper?.map(clonedEvent);
       if (!dstEventMapping) {
         console.warn(
-          'Adjust event token not found. Please check your event mappings.'
+          `[${this.key}] Event not found in event mappings. Please check your event mappings.`
         );
         return event;
       }
       clonedEvent.event = dstEventMapping.dstEventName;
-      await track(event);
+      console.log(`[${this.key}] clonedEvent`, clonedEvent);
+      await track(clonedEvent);
     } catch (error) {
-      console.error('Error on Firebase Track', error);
+      console.error(`[${this.key}] Error on Firebase Track`, error);
     }
     return event;
   }
@@ -71,7 +76,7 @@ export class FirebasePlugin extends DestinationPlugin {
     try {
       await screen(event);
     } catch (error) {
-      console.error('Error on Firebase Screen', error);
+      console.error(`[${this.key}] Error on Firebase Screen`, error);
     }
     return event;
   }
@@ -80,7 +85,7 @@ export class FirebasePlugin extends DestinationPlugin {
     try {
       await reset();
     } catch (error) {
-      console.error('Error on Firebase Reset', error);
+      console.error(`[${this.key}] Error on Firebase Reset`, error);
     }
   }
 }

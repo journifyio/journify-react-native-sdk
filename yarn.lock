@@ -2616,6 +2616,42 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@journifyio/react-native-sdk-plugin-clevertap@workspace:packages/plugins/plugin-clevertap":
+  version: 0.0.0-use.local
+  resolution: "@journifyio/react-native-sdk-plugin-clevertap@workspace:packages/plugins/plugin-clevertap"
+  dependencies:
+    "@journifyio/react-native-sdk": "npm:^1.10.0"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.9.0"
+    clevertap-react-native: "npm:^3.4.0"
+    jest: "npm:^29.7.0"
+    react-native-builder-bob: "npm:^0.23.1"
+    rimraf: "npm:^5.0.5"
+    typescript: "npm:^5.2.2"
+  peerDependencies:
+    "@journifyio/react-native-sdk": ^1.10.0
+    clevertap-react-native: ^3.4.0
+  languageName: unknown
+  linkType: soft
+
+"@journifyio/react-native-sdk-plugin-firebase@workspace:packages/plugins/plugin-firebase":
+  version: 0.0.0-use.local
+  resolution: "@journifyio/react-native-sdk-plugin-firebase@workspace:packages/plugins/plugin-firebase"
+  dependencies:
+    "@journifyio/react-native-sdk": "npm:^1.10.0"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.9.0"
+    "@react-native-firebase/analytics": "npm:^18.4.0"
+    "@react-native-firebase/app": "npm:^18.4.0"
+    jest: "npm:^29.7.0"
+    react-native-builder-bob: "npm:^0.23.1"
+    rimraf: "npm:^5.0.5"
+    typescript: "npm:^5.2.2"
+  peerDependencies:
+    "@journifyio/react-native-sdk": ^1.10.0
+    "@react-native-firebase/analytics": ">=18.4.0"
+    "@react-native-firebase/app": ">=18.4.0"
+  languageName: unknown
+  linkType: soft
+
 "@journifyio/react-native-sdk-plugin-idfa@workspace:packages/plugins/plugin-idfa":
   version: 0.0.0-use.local
   resolution: "@journifyio/react-native-sdk-plugin-idfa@workspace:packages/plugins/plugin-idfa"
@@ -2628,6 +2664,24 @@ __metadata:
     typescript: "npm:^5.2.2"
   peerDependencies:
     "@journifyio/react-native-sdk": ^1.10.0
+  languageName: unknown
+  linkType: soft
+
+"@journifyio/react-native-sdk-plugin-moengage@workspace:packages/plugins/plugin-moengage":
+  version: 0.0.0-use.local
+  resolution: "@journifyio/react-native-sdk-plugin-moengage@workspace:packages/plugins/plugin-moengage"
+  dependencies:
+    "@journifyio/react-native-sdk": "npm:^1.10.0"
+    "@journifyio/react-native-sdk-sovran": "npm:^1.9.0"
+    jest: "npm:^29.7.0"
+    react-native-adjust: "npm:^5.1.0"
+    react-native-builder-bob: "npm:^0.23.1"
+    react-native-moengage: "npm:^11.2.2"
+    rimraf: "npm:^5.0.5"
+    typescript: "npm:^5.2.2"
+  peerDependencies:
+    "@journifyio/react-native-sdk": ^1.10.0
+    react-native-moengage: ^11.2.2
   languageName: unknown
   linkType: soft
 
@@ -3382,6 +3436,32 @@ __metadata:
   bin:
     react-native: build/bin.js
   checksum: 10/adc327fd0f5d6875b74fa1a37b452de519ba727dba51e2b4ef11097aa632517121891456c88dbf578237e3023a1ace619fe9a1b108a8bda6c500615c0b575502
+  languageName: node
+  linkType: hard
+
+"@react-native-firebase/analytics@npm:^18.4.0":
+  version: 18.9.0
+  resolution: "@react-native-firebase/analytics@npm:18.9.0"
+  peerDependencies:
+    "@react-native-firebase/app": 18.9.0
+  checksum: 10/ebaf126c01ba9bc45653f2b890ad2fa9ddbdd5b29e1c5793f81d9faae7e7288b370b14f57dc7e9854d9af3147b26915c09f2b04182848934c350bff8188f3aed
+  languageName: node
+  linkType: hard
+
+"@react-native-firebase/app@npm:^18.4.0":
+  version: 18.9.0
+  resolution: "@react-native-firebase/app@npm:18.9.0"
+  dependencies:
+    opencollective-postinstall: "npm:^2.0.3"
+    superstruct: "npm:^0.6.2"
+  peerDependencies:
+    expo: ">=47.0.0"
+    react: "*"
+    react-native: "*"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: 10/fb511c9cf05d874a90a20b01d358544b8ca0561dfac305f8857046825660293071aab8f9e276ed1d4e2f0cca0b9e71182ca4128108934584c0269ff21ad8d09b
   languageName: node
   linkType: hard
 
@@ -6335,6 +6415,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clevertap-react-native@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "clevertap-react-native@npm:3.4.0"
+  peerDependencies:
+    react-native: ">=0.65.0"
+  checksum: 10/7d09209ae33362bd3713a15cc8ceb2b20b84dbbcf1db5d991f28371700cdf1e1385c6e26a81cfdabd59cc029491c09c25ba4ef8e4cbffb5ad92d4928ac595f50
+  languageName: node
+  linkType: hard
+
 "cli-columns@npm:^4.0.0":
   version: 4.0.0
   resolution: "cli-columns@npm:4.0.0"
@@ -6393,6 +6482,18 @@ __metadata:
     strip-ansi: "npm:^6.0.1"
     wrap-ansi: "npm:^7.0.0"
   checksum: 10/eaa5561aeb3135c2cddf7a3b3f562fc4238ff3b3fc666869ef2adf264be0f372136702f16add9299087fb1907c2e4ec5dbfe83bd24bce815c70a80c6c1a2e950
+  languageName: node
+  linkType: hard
+
+"clone-deep@npm:^2.0.1":
+  version: 2.0.2
+  resolution: "clone-deep@npm:2.0.2"
+  dependencies:
+    for-own: "npm:^1.0.0"
+    is-plain-object: "npm:^2.0.4"
+    kind-of: "npm:^6.0.0"
+    shallow-clone: "npm:^1.0.0"
+  checksum: 10/c33ae31e332cdfd477a8115c9d044984eb69bf009fce3e1f0ff002176652f572d8742aa5e6caeaf16cf5d6084e33fe51bfa482fec53f43e767b3518c797955b1
   languageName: node
   linkType: hard
 
@@ -8132,6 +8233,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"for-in@npm:^0.1.3":
+  version: 0.1.8
+  resolution: "for-in@npm:0.1.8"
+  checksum: 10/f5bdad7811700ee6a0f96b33d72a1db966aea75a1f03c7245d147f8369305e709f53a55ee7ae8eaddcfa85c7c89bca78472be8f1bc605475ce5bb2c70f77f8da
+  languageName: node
+  linkType: hard
+
+"for-in@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "for-in@npm:1.0.2"
+  checksum: 10/09f4ae93ce785d253ac963d94c7f3432d89398bf25ac7a24ed034ca393bf74380bdeccc40e0f2d721a895e54211b07c8fad7132e8157827f6f7f059b70b4043d
+  languageName: node
+  linkType: hard
+
+"for-own@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "for-own@npm:1.0.0"
+  dependencies:
+    for-in: "npm:^1.0.1"
+  checksum: 10/233238f6e9060f61295a7f7c7e3e9de11aaef57e82a108e7f350dc92ae84fe2189848077ac4b8db47fd8edd45337ed8d9f66bd0b1efa4a6a1b3f38aa21b7ab2e
+  languageName: node
+  linkType: hard
+
 "foreground-child@npm:^3.1.0":
   version: 3.3.0
   resolution: "foreground-child@npm:3.3.0"
@@ -9100,6 +9224,13 @@ __metadata:
   version: 0.3.1
   resolution: "is-directory@npm:0.3.1"
   checksum: 10/dce9a9d3981e38f2ded2a80848734824c50ee8680cd09aa477bef617949715cfc987197a2ca0176c58a9fb192a1a0d69b535c397140d241996a609d5906ae524
+  languageName: node
+  linkType: hard
+
+"is-extendable@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "is-extendable@npm:0.1.1"
+  checksum: 10/3875571d20a7563772ecc7a5f36cb03167e9be31ad259041b4a8f73f33f885441f778cee1f1fe0085eb4bc71679b9d8c923690003a36a6a5fdf8023e6e3f0672
   languageName: node
   linkType: hard
 
@@ -10125,6 +10256,7 @@ __metadata:
     react: "npm:18.2.0"
     react-native: "npm:^0.72.7"
     react-native-builder-bob: "npm:^0.23.1"
+    react-native-moengage: "npm:^11.2.2"
     rimraf: "npm:^5.0.5"
     semantic-release: "npm:^22.0.12"
     semantic-release-yarn: "npm:^3.0.2"
@@ -10379,7 +10511,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kind-of@npm:^6.0.2, kind-of@npm:^6.0.3":
+"kind-of@npm:^5.0.0":
+  version: 5.1.0
+  resolution: "kind-of@npm:5.1.0"
+  checksum: 10/acf7cc73881f27629f700a80de77ff7fe4abc9430eac7ddb09117f75126e578ee8d7e44c4dacb6a9e802d5d881abf007ee6af3cfbe55f8b5cf0a7fdc49a02aa3
+  languageName: node
+  linkType: hard
+
+"kind-of@npm:^6.0.0, kind-of@npm:^6.0.1, kind-of@npm:^6.0.2, kind-of@npm:^6.0.3":
   version: 6.0.3
   resolution: "kind-of@npm:6.0.3"
   checksum: 10/5873d303fb36aad875b7538798867da2ae5c9e328d67194b0162a3659a627d22f742fc9c4ae95cd1704132a24b00cae5041fc00c0f6ef937dc17080dc4dbb962
@@ -11570,6 +11709,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mixin-object@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "mixin-object@npm:2.0.1"
+  dependencies:
+    for-in: "npm:^0.1.3"
+    is-extendable: "npm:^0.1.1"
+  checksum: 10/7d0eb7c2f06435fcc01d132824b4c973a0df689a117d8199d79911b506363b6f4f86a84458a63f3acfa7388f3052612cfe27105400b4932678452925a9739a4c
+  languageName: node
+  linkType: hard
+
 "mkdirp@npm:^0.5.1":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
@@ -12167,6 +12316,15 @@ __metadata:
   dependencies:
     is-wsl: "npm:^1.1.0"
   checksum: 10/9b1cfda7a649f432c8bfa281796d28b5a49f7afcb470d9054ca94c7d0b1e8273432f55134dd953eb593ffce244de1b701ee89e6fe9c25ea8215eb1ca1ae8a1a9
+  languageName: node
+  linkType: hard
+
+"opencollective-postinstall@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "opencollective-postinstall@npm:2.0.3"
+  bin:
+    opencollective-postinstall: index.js
+  checksum: 10/69d63778087cd10c9d707d9ed360556780cfdd0cd6241ded0e26632f467f1d5a064f4a9aec19a30c187770c17adba034d988f7684b226f3a73e79f44e73fab0e
   languageName: node
   linkType: hard
 
@@ -12954,6 +13112,13 @@ __metadata:
   peerDependencies:
     react-native: ">=0.56"
   checksum: 10/eb04833ce2b66309d737f1447ab01ad32aca00a8d1cc4de7b4e751c23f4d9f8059a2643bb16e0b6f3e6b074a9e57e769bb2bf2afc50a912c5661d80a6ce4de34
+  languageName: node
+  linkType: hard
+
+"react-native-moengage@npm:^11.2.2":
+  version: 11.2.2
+  resolution: "react-native-moengage@npm:11.2.2"
+  checksum: 10/842d72096e713183ef9d3d9628c3debc47a497b13e92c8c3a3cca548a9ef47960918687304edb13cf62105a5358977dde9c41b3d9c956da7a1247c97efbdfb17
   languageName: node
   linkType: hard
 
@@ -13750,6 +13915,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"shallow-clone@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "shallow-clone@npm:1.0.0"
+  dependencies:
+    is-extendable: "npm:^0.1.1"
+    kind-of: "npm:^5.0.0"
+    mixin-object: "npm:^2.0.1"
+  checksum: 10/51e36158d0fd7d9d0ce599a01a0a835d9e0a6ec10d6c69b62dda50ded5284ab92237ce5fa34cb58390e06c83961a17f1c39704e189ce0d7ae6daedae151da734
+  languageName: node
+  linkType: hard
+
 "shallow-clone@npm:^3.0.0":
   version: 3.0.1
   resolution: "shallow-clone@npm:3.0.1"
@@ -14348,6 +14524,16 @@ __metadata:
   version: 9.2.1
   resolution: "sudo-prompt@npm:9.2.1"
   checksum: 10/0557d0eecebf8db8212df4a9816509c875ca65ad9ee26a55240848820f9bdbdbbd9e5a1bdb5aa052fb1f748cba4ef90c8da9b40628f59e6dc79ca986e80740de
+  languageName: node
+  linkType: hard
+
+"superstruct@npm:^0.6.2":
+  version: 0.6.2
+  resolution: "superstruct@npm:0.6.2"
+  dependencies:
+    clone-deep: "npm:^2.0.1"
+    kind-of: "npm:^6.0.1"
+  checksum: 10/2377455173450769eaa19381bec851cafb8e356116f5b5fab1fb764b9fbdaff20322cf2f2d3185c3bb856233c9cdb8fb9e6dc03e5132adf902a71acee03822a3
   languageName: node
   linkType: hard
 
