@@ -1,10 +1,10 @@
 {
-  "name": "example",
+  "name": "journify-react-native-sdk-example",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --port=9091 --udid=1CA4C445-C108-4BC9-9E24-151F08870078",
+    "ios": "react-native run-ios --port=9091",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"

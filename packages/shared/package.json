@@ -4,7 +4,7 @@
   "private": true,
   "description": "Shared dev code between Analytics React Native projects",
   "main": "index.js",
-  "author": "Iliyass Hamza <iliyass.hamza@journify.io> (https://github.com/Iliyass)",
+  "author": "Jounify.io <hello@journify.io> https://github.com/journifyio",
   "license": "MIT",
   "peerDependencies": {
     "react": "*",

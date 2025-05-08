@@ -1,7 +1,7 @@
 {
   "name": "@journifyio/react-native-sdk",
   "version": "1.12.0",
-  "description": "Jounrifyio React Native SDK",
+  "description": "Journifyio React Native SDK",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
@@ -48,7 +48,7 @@
     "url": "git+https://github.com/journifyio/journify-react-native-sdk.git",
     "directory": "packages/core"
   },
-  "author": "Iliyass Hamza <iliyass.hamza@journify.io> (https://github.com/Iliyass)",
+  "author": "Jounify.io <hello@journify.io> https://github.com/journifyio",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/journifyio/journify-react-native-sdk/issues"

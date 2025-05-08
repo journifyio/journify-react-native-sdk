@@ -1,7 +1,7 @@
 {
   "name": "@journifyio/react-native-sdk-plugin-firebase",
   "version": "0.0.1",
-  "description": "The hassle-free way to add Segment analytics to your React-Native app.",
+  "description": "Firebase plugin for Journifyio React Native SDK",
   "main": "lib/commonjs/index",
   "scripts": {
     "build": "bob build",
@@ -34,15 +34,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/segmentio/analytics-react-native.git",
-    "directory": "packages/core"
+    "url": "https://github.com/journifyio/journifyio-react-native-sdk.git",
+    "directory": "packages/plugins/plugin-firebase"
   },
-  "author": "Segment <hello@segment.com> (https://segment.com/)",
+  "author": "Iliyass Hamza <iliyass.hamza@journify.io> (https://github.com/Iliyass)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/segmentio/analytics-react-native/issues"
+    "url": "https://github.com/journifyio/journifyio-react-native-sdk/issues"
   },
-  "homepage": "https://github.com/segmentio/analytics-react-native/tree/master/packages/plugins/plugin-firebase#readme",
+  "homepage": "https://github.com/journifyio/journifyio-react-native-sdk/tree/master/packages/plugins/plugin-firebase#readme",
   "peerDependencies": {
     "@journifyio/react-native-sdk": "^1.10.0",
     "@react-native-firebase/analytics": ">=18.4.0",

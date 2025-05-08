@@ -41,7 +41,7 @@
     "type": "git",
     "url": "git+https://github.com/journifyio/journifyio-react-native-sdk.git"
   },
-  "author": "Iliyass Hamza <iliyass.hamza@journify.io> (https://github.com/Iliyass)",
+  "author": "Jounify.io <hello@journify.io> https://github.com/journifyio",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/journifyio/journifyio-react-native-sdk/issues"
