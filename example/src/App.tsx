@@ -34,8 +34,17 @@ const journifyClient = createClient(config);
 
 journifyClient.add({plugin: new IdfaPlugin()});
 journifyClient.add({plugin: new AdjustPlugin()});
-journifyClient.add({plugin: new AppsflyerPlugin()});
-journifyClient.add({plugin: new MoengagePlugin()});
+journifyClient.add({
+  plugin: new AppsflyerPlugin({
+    DevKey: 'ddd',
+    AppID: 'ddd',
+  }),
+});
+journifyClient.add({
+  plugin: new MoengagePlugin({
+    workspaceId: 'ddd',
+  }),
+});
 journifyClient.add({plugin: new ClevertapPlugin()});
 journifyClient.add({plugin: new FirebasePlugin()});
 

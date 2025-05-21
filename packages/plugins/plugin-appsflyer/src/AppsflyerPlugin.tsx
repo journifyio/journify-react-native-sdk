@@ -9,18 +9,32 @@ import appsFlyer from 'react-native-appsflyer';
 import identify from './methods/identify';
 import track from './methods/track';
 
-const SETTINGS_KEYS = {
-  appsFlyerDevKey: 'appsflyer_dev_key',
-  appleAppID: 'appsflyer_app_id',
+type Settings = {
+  DevKey: string;
+  AppID: string;
 };
+
 export class AppsflyerPlugin extends DestinationPlugin {
-  constructor(props?: {
-    timeToWaitForATTUserAuthorization: number;
-    is_adset: boolean;
-    is_adset_id: boolean;
-    is_ad_id: boolean;
-  }) {
+  constructor(
+    settings: Settings,
+    props?: {
+      timeToWaitForATTUserAuthorization: number;
+      is_adset: boolean;
+      is_adset_id: boolean;
+      is_ad_id: boolean;
+    }
+  ) {
     super();
+    if (settings === undefined || settings === null) {
+      throw new Error('Appsflyer settings are required');
+    }
+    if (settings.AppID === undefined || settings.AppID === null) {
+      throw new Error('Appsflyer AppID is required');
+    }
+    if (settings.DevKey === undefined || settings.DevKey === null) {
+      throw new Error('Appsflyer DevKey is required');
+    }
+    this.settings = settings;
     if (props != null) {
       this.timeToWaitForATTUserAuthorization =
         props.timeToWaitForATTUserAuthorization;
@@ -38,6 +52,7 @@ export class AppsflyerPlugin extends DestinationPlugin {
   private hasRegisteredInstallCallback = false;
   private hasRegisteredDeepLinkCallback = false;
   private hasInitialized = false;
+  private settings: Settings;
 
   timeToWaitForATTUserAuthorization = 60;
 
@@ -53,19 +68,6 @@ export class AppsflyerPlugin extends DestinationPlugin {
     if (appsflyerSettings === undefined) {
       return;
     }
-    const devKey = appsflyerSettings.settings.find(
-      (setting) => setting.key === SETTINGS_KEYS.appsFlyerDevKey
-    )?.value;
-    const appId = appsflyerSettings.settings.find(
-      (setting) => setting.key === SETTINGS_KEYS.appleAppID
-    )?.value;
-    if (devKey === undefined) {
-      console.error(
-        `[${this.key}] dev key is required. Please check your settings.`
-      );
-      return;
-    }
-
     const clientConfig = this.analytics?.getConfig();
 
     if (!this.hasRegisteredInstallCallback) {
@@ -85,8 +87,8 @@ export class AppsflyerPlugin extends DestinationPlugin {
     if (!this.hasInitialized) {
       try {
         await appsFlyer.initSdk({
-          devKey: devKey as string,
-          appId: appId as string,
+          devKey: this.settings.DevKey,
+          appId: this.settings.AppID,
           onDeepLinkListener: clientConfig?.trackDeepLinks === true,
           ...defaultOpts,
         });

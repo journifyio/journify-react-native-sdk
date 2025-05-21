@@ -2236,9 +2236,9 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 6ee0ee888bb1db802c49049001adb4013d7fe41b
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   hermes-engine: 8d2103d6c0176779aea4e25df6bb1410f9946680
-  journifyio-react-native-sdk: 5a4cee12b3315a07f8565cf52221e6920c25432d
+  journifyio-react-native-sdk: 8a8106ac634951e158975492e55d7ee106d81560
   journifyio-react-native-sdk-plugin-idfa: 49de0a47c39fbfd8b485a3ff96e9949703bd9c65
-  journifyio-react-native-sdk-sovran: d2f1dc47d97fc5ab5e50a4feca653bf39a66cea3
+  journifyio-react-native-sdk-sovran: ad8c58415a6dc66ae45aa360d8c1d8ec4e10c9d5
   MoEngage-iOS-SDK: fd3ded7dd1a8c5a50918aad0b71950d73f560515
   MoEngageAnalytics: 5a2c109afacce81ee31281b0fcd69239c43783cc
   MoEngageCore: 852d1cb683b834d7279d92e659e6f05ee5533b0e

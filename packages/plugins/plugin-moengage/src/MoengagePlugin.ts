@@ -15,17 +15,24 @@ import { mapTraits, transformMap } from './parameterMapping';
 import { MoEPushConfig, MoEngageLogConfig } from 'react-native-moengage';
 const mappedTraits = generateMapTransform(mapTraits, transformMap);
 
-const SETTINGS_KEYS = {
-  workspaceId: 'moengage_workspace_id',
+type Settings = {
+  workspaceId: string;
 };
 export class MoengagePlugin extends DestinationPlugin {
   type = PluginType.destination;
   key = 'moengage';
-  private settings: Sync | null = null;
+  private settings: Settings;
   private config: MoEInitConfig | undefined = undefined;
 
-  constructor(config?: MoEInitConfig) {
+  constructor(settings: Settings, config?: MoEInitConfig) {
     super();
+    if (settings === undefined || settings === null) {
+      throw new Error('MoEngage settings are required');
+    }
+    if (settings.workspaceId === undefined || settings.workspaceId === null) {
+      throw new Error('MoEngage workspace ID is required');
+    }
+    this.settings = settings;
     const moEInitConfig = new MoEInitConfig(
       MoEPushConfig.defaultConfig(),
       MoEngageLogConfig.defaultConfig(),
@@ -38,20 +45,8 @@ export class MoengagePlugin extends DestinationPlugin {
     if (settings === undefined || settings === null) {
       return;
     }
-    this.settings = settings;
-    // Get the workspace ID from the settings
-    let workspaceId: string | null = null;
-    for (const obj of this.settings.settings) {
-      if (obj.key === SETTINGS_KEYS.workspaceId) {
-        workspaceId = obj.value as string;
-      }
-    }
-    if (workspaceId === null) {
-      console.error(`[${this.key}] workspace ID is required`);
-      return;
-    }
     // Initialize MoEngage with the workspace ID
-    MoEngage.initialize(workspaceId, this.config);
+    MoEngage.initialize(this.settings.workspaceId, this.config);
   }
   identify(event: JournifyEvent) {
     const traits = event.traits as Record<string, unknown>;
