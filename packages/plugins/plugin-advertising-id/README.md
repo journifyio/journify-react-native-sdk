@@ -1,41 +1,42 @@
 # @journifyio/react-native-sdk-plugin-advertising-id
 
-`EnrichmentPlugin` to collect advertisingId on Android
+`EnrichmentPlugin` to collect advertising ID on Android devices. This plugin collects the device's advertising ID and adds it to event context.
+
+**This plugin only works on Android. iOS calls will result in no-op.**
 
 ## Installation
 
-Add the package
+Using NPM:
 
-```sh
+```bash
+npm install --save @journifyio/react-native-sdk-plugin-advertising-id
+```
+
+Using Yarn:
+
+```bash
 yarn add @journifyio/react-native-sdk-plugin-advertising-id
 ```
 
-This plugin requires a `compileSdkVersion` of at least 19. 
+This plugin requires a `compileSdkVersion` of at least 19.
 
 ## Usage
 
-Follow the instructions for adding plugins on the main Analytics client:
+Follow the [instructions for adding plugins](https://github.com/journifyio/journifyio-react-native-sdk#adding-plugins) on the main Analytics client:
 
-In your code where you initialize the Analytics client call the `.add(plugin)` method with an `AdvertisingId` instance
+In your code where you initialize the analytics client, call the `.add(plugin)` method with an `AdvertisingIdPlugin` instance:
 
 ```js
 import { createClient } from '@journifyio/react-native-sdk';
 import { AdvertisingIdPlugin } from '@journifyio/react-native-sdk-plugin-advertising-id';
 
 const journifyClient = createClient({
-  writeKey: 'WRITE_KEY'
+  writeKey: 'WRITE_KEY',
 });
-
-
-//...
 
 journifyClient.add({ plugin: new AdvertisingIdPlugin() });
 ```
 
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
 ## License
 
-MIT
+MIT License

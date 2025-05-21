@@ -92,3 +92,8 @@ tsconfig.tsbuildinfo
 packages/core/src/info.ts
 
 .pnpm/
+
+
+# Firebase config files (iOS & Android)
+GoogleService-Info.plist
+google-services.json

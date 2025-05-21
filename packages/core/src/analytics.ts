@@ -23,7 +23,7 @@ import {
   createIdentifyEvent,
 } from './events';
 import { FlushPolicy, Observable } from './flushPolicies/types';
-import type { Plugin } from './plugin';
+import type { DestinationPlugin, Plugin } from './plugin';
 import { JournifyDestination } from './plugins/JournifyDestination';
 import { Settable, Storage, Watchable } from './storage/types';
 import { Timeline } from './timeline';
@@ -363,9 +363,16 @@ export class JournifyClient {
 
   /**
    * Adds a new plugin to the currently loaded set.
-   * @param {{ plugin: Plugin, settings?: IntegrationSettings }} Plugin to be added.
+   * @param {{ plugin: Plugin, settings?: Sync }} Plugin to be added.
    */
-  add<P extends Plugin>({ plugin }: { plugin: P }) {
+  add<P extends Plugin>({ plugin, settings }: { plugin: P; settings?: Sync }) {
+    if (settings !== undefined && plugin.type === PluginType.destination) {
+      this.store.settings.add(
+        (plugin as unknown as DestinationPlugin).key,
+        settings
+      );
+    }
+
     if (!this.isReady.value) {
       this.pluginsToAdd.push(plugin);
     } else {
@@ -390,6 +397,9 @@ export class JournifyClient {
       const fromattedSettings = writeKeysSettings.syncs.reduce(
         (acc, sync) => ({ ...acc, [sync.destination_app]: sync }),
         {}
+      );
+      console.log(
+        `[JournifyClient] Plugins loaded: ${Object.keys(fromattedSettings)}`
       );
       await this.store.settings.set(fromattedSettings);
     } catch (error) {

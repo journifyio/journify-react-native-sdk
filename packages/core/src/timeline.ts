@@ -1,6 +1,6 @@
 import type { JournifyEvent } from './events';
 import type { Plugin } from './plugin';
-import { PluginType } from './types';
+import { PluginType, UpdateType } from './types';
 import { getAllPlugins } from './utils';
 
 type TimelinePlugins = {
@@ -26,7 +26,7 @@ export class Timeline {
     }
     const pluginSetting = plugin.analytics?.getIntegrationSettings(plugin.key);
     if (pluginSetting) {
-      plugin.update(pluginSetting);
+      plugin.update(pluginSetting, UpdateType.initial);
     }
   }
 

@@ -6,6 +6,7 @@ import {
   DeepPartial,
   JournifyAPIConsentSettings,
   JournifyIntegrations,
+  Sync,
 } from '../types';
 import { Context, JournifyEvent, UserInfoState } from '../events';
 
@@ -61,7 +62,8 @@ export interface Storage {
     Settable<DeepPartial<Context>>;
 
   readonly settings: Watchable<JournifyIntegrations | undefined> &
-    Settable<JournifyIntegrations>;
+    Settable<JournifyIntegrations> &
+    Dictionary<string, Sync, JournifyIntegrations>;
 
   readonly consentSettings: Watchable<JournifyAPIConsentSettings | undefined> &
     Settable<JournifyAPIConsentSettings | undefined>;

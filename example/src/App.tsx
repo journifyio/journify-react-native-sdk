@@ -15,19 +15,38 @@ import {IdfaPlugin} from '@journifyio/react-native-sdk-plugin-idfa';
 import Home from './Home';
 import SecondPage from './SecondPage';
 import Modal from './Modal';
+import {AdjustPlugin} from '@journifyio/react-native-sdk-plugin-adjust';
+import {AppsflyerPlugin} from '@journifyio/react-native-sdk-plugin-appsflyer';
+import {MoengagePlugin} from '@journifyio/react-native-sdk-plugin-moengage';
+import {ClevertapPlugin} from '@journifyio/react-native-sdk-plugin-clevertap';
+import {FirebasePlugin} from '@journifyio/react-native-sdk-plugin-firebase';
 
 const config = {
   debug: true,
-  writeKey: 'wk_2d4mVF4PZNzNfGzfiLdaMkw9rVf',
+  writeKey: 'wk_2w52dWa6Uv4XsyfC958ximVWFhz',
   apiHost: 'https://t.journify.dev',
-  cdnHost: 'https://static.journify.dev',
+  cdnHost: 'https://staging.journify.dev',
   trackAppLifecycleEvents: true,
-  flushInterval: 100,
+  flushInterval: 1,
   hashPII: false,
 };
 const journifyClient = createClient(config);
 
 journifyClient.add({plugin: new IdfaPlugin()});
+journifyClient.add({plugin: new AdjustPlugin()});
+journifyClient.add({
+  plugin: new AppsflyerPlugin({
+    DevKey: 'ddd',
+    AppID: 'ddd',
+  }),
+});
+journifyClient.add({
+  plugin: new MoengagePlugin({
+    workspaceId: 'ddd',
+  }),
+});
+journifyClient.add({plugin: new ClevertapPlugin()});
+journifyClient.add({plugin: new FirebasePlugin()});
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();

@@ -12,8 +12,10 @@ import {
   Storage,
   StorageConfig,
   Watchable,
+  Dictionary,
 } from './types';
 import {
+  Sync,
   DeepPartial,
   JournifyAPIConsentSettings,
   JournifyIntegrations,
@@ -91,7 +93,8 @@ export class SovranStorage implements Storage {
     Settable<DeepPartial<Context>>;
 
   readonly settings: Watchable<JournifyIntegrations | undefined> &
-    Settable<JournifyIntegrations>;
+    Settable<JournifyIntegrations> &
+    Dictionary<string, Sync, JournifyIntegrations>;
 
   readonly userInfo: Watchable<UserInfoState> & Settable<UserInfoState>;
 
@@ -198,6 +201,11 @@ export class SovranStorage implements Storage {
           return { settings: newState };
         });
         return settings;
+      },
+      add: async (key: string, value: Sync) => {
+        return this.settingsStore.dispatch((state) => ({
+          settings: { ...state.settings, [key]: value },
+        }));
       },
     };
 
