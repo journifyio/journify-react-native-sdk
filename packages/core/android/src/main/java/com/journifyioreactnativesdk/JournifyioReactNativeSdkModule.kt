@@ -125,7 +125,7 @@ class JournifyioReactNativeSdkModule : ReactContextBaseJavaModule, ActivityEvent
   @ReactMethod
   fun getContextInfo(config: ReadableMap, promise: Promise) {
     val appName: String = reactApplicationContext.applicationInfo.loadLabel(reactApplicationContext.packageManager).toString()
-    val appVersion: String = pInfo.versionName
+    val appVersion: String = pInfo.versionName.toString()
     val buildNumber = getBuildNumber()
     val bundleId = reactApplicationContext.packageName
 
