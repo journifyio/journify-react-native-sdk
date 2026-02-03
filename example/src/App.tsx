@@ -22,7 +22,7 @@ const config = {
   apiHost: 'https://t.journify.dev',
   cdnHost: 'https://static.journify.dev',
   trackAppLifecycleEvents: true,
-  flushInterval: 100,
+  flushInterval: 10,
   hashPII: false,
 };
 const journifyClient = createClient(config);
