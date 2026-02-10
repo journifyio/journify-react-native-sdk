@@ -30,14 +30,32 @@ jobs:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
           
-      - name: Fix tag sync (temporary - remove after success)
+      - name: Fix orphaned tags (temporary - remove after success)
         run: |
+          # Delete all orphaned tags
+          git push origin --delete @journifyio/react-native-sdk-plugin-advertising-id-v1.2.1 || true
+          git push origin --delete @journifyio/react-native-sdk-plugin-idfa-v1.2.1 || true
           git push origin --delete @journifyio/react-native-sdk-sovran-v1.10.1 || true
           git push origin --delete @journifyio/react-native-sdk-sovran-v1.10.2 || true
+          git push origin --delete @journifyio/react-native-sdk-v1.11.4 || true
+          git push origin --delete @journifyio/react-native-sdk-v1.11.5 || true
+          git push origin --delete @journifyio/react-native-sdk-v1.12.0 || true
+
+          git tag -d @journifyio/react-native-sdk-plugin-advertising-id-v1.2.1 || true
+          git tag -d @journifyio/react-native-sdk-plugin-idfa-v1.2.1 || true
           git tag -d @journifyio/react-native-sdk-sovran-v1.10.1 || true
           git tag -d @journifyio/react-native-sdk-sovran-v1.10.2 || true
+          git tag -d @journifyio/react-native-sdk-v1.11.4 || true
+          git tag -d @journifyio/react-native-sdk-v1.11.5 || true
+          git tag -d @journifyio/react-native-sdk-v1.12.0 || true
+
+          # Recreate only the LATEST version for each package on HEAD
+          git tag @journifyio/react-native-sdk-plugin-advertising-id-v1.2.1
+          git tag @journifyio/react-native-sdk-plugin-idfa-v1.2.1
           git tag @journifyio/react-native-sdk-sovran-v1.10.2
-          git push origin @journifyio/react-native-sdk-sovran-v1.10.2
+          git tag @journifyio/react-native-sdk-v1.12.0
+          
+          git push origin --tags
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
