@@ -1,6 +1,6 @@
 {
   "name": "@journifyio/react-native-sdk-sovran",
-  "version": "1.10.2",
+  "version": "1.10.1",
   "description": "A cross-platform state management system",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
