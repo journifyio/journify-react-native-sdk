@@ -29,9 +29,15 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
-
-      - name: Fetch all tags
-        run: git fetch --tags --force
+          
+      - name: Fix tag sync (temporary - remove after success)
+        run: |
+          git push origin --delete @journifyio/react-native-sdk-sovran-v1.10.1 || true
+          git push origin --delete @journifyio/react-native-sdk-sovran-v1.10.2 || true
+          git tag -d @journifyio/react-native-sdk-sovran-v1.10.1 || true
+          git tag -d @journifyio/react-native-sdk-sovran-v1.10.2 || true
+          git tag @journifyio/react-native-sdk-sovran-v1.10.2
+          git push origin @journifyio/react-native-sdk-sovran-v1.10.2
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
