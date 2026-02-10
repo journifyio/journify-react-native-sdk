@@ -1,6 +1,6 @@
 # @journifyio/react-native-sdk-sovran
 
-A cross-platform lightweight local state management system designed for React Native.
+A cross-platform lightweight local state management system designed for React Native apps.
 
 ## Motivation
 
