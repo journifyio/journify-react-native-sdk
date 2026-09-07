@@ -39,7 +39,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/journifyio/journify-react-native-sdk.git"
+    "url": "https://github.com/journifyio/journify-react-native-sdk.git"
   },
   "author": "Iliyass Hamza <iliyass.hamza@journify.io> (https://github.com/Iliyass)",
   "license": "MIT",
@@ -48,7 +48,8 @@
   },
   "homepage": "https://github.com/journifyio/journifyio-react-native-sdk#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
   },
   "jest": {
     "preset": "react-native",
