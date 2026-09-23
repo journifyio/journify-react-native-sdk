@@ -13,6 +13,7 @@ import {
 import { checkResponseForErrors, translateHTTPError } from './errors';
 import {
   createTrackEvent,
+  type ExternalIds,
   type JournifyEvent,
   type JsonMap,
   type UserInfoState,
@@ -629,10 +630,15 @@ export class JournifyClient {
     return this.flushPolicyExecuter.policies;
   }
 
-  async track(eventName: string, properties?: JsonMap) {
+  async track(
+    eventName: string,
+    properties?: JsonMap,
+    externalIds?: ExternalIds
+  ) {
     const event = createTrackEvent({
       event: eventName,
       properties,
+      externalIds,
     });
     await this.process(event);
   }

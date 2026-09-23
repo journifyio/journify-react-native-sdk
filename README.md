@@ -147,7 +147,7 @@ The [track](https://docs.journify.io/tracking/track-event) method is how you rec
 Method signature:
 
 ```js
-track: (event: string, properties?: JsonMap) => void;
+track: (event: string, properties?: JsonMap, externalIds?: ExternalIds) => void;
 ```
 
 Example usage:
@@ -158,6 +158,32 @@ journifyClient.track('View Product', {
   productName: 'Striped trousers',
 });
 ```
+
+You can optionally associate a track event with attribution identifiers from
+external systems. Pass `externalIds` as the third argument; it is serialized as
+a top-level event field alongside `type`, `event`, and `properties`.
+
+For the list of supported attribution identifier fields, see
+[Attribution identifiers](https://docs.journify.io/syncs/context#attribution-identifiers).
+
+```js
+journifyClient.track(
+  'Purchase',
+  {
+    amount: 29.99,
+    currency: 'USD',
+  },
+  {
+    facebook_click_id: 'fbclid_12345',
+    facebook_browser_id: 'fbp_987',
+    snapchat_click_id: 'snapclid_12345',
+    snapchat_scid: 'scid_987',
+  }
+);
+```
+
+Do not put `externalIds` inside `properties`. Calls that omit the third
+argument keep the existing payload shape.
 
 ### Screen
 

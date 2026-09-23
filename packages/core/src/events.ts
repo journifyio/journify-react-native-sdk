@@ -15,12 +15,15 @@ export const createIdentifyEvent = ({
 export const createTrackEvent = ({
   event,
   properties = {},
+  externalIds,
 }: {
   event: string;
   properties?: JsonMap;
+  externalIds?: ExternalIds;
 }): JournifyEvent => ({
   type: JournifyEventType.TRACK,
   event,
+  ...(externalIds === undefined ? {} : { externalIds }),
   properties,
 });
 
