@@ -13,6 +13,8 @@ import {
 import { checkResponseForErrors, translateHTTPError } from './errors';
 import {
   createTrackEvent,
+  type ExternalIds,
+  hasExternalIds,
   type JournifyEvent,
   type JsonMap,
   type UserInfoState,
@@ -21,6 +23,7 @@ import {
   createScreenEvent,
   Traits,
   createIdentifyEvent,
+  sanitizeExternalIds,
 } from './events';
 import { FlushPolicy, Observable } from './flushPolicies/types';
 import type { Plugin } from './plugin';
@@ -427,7 +430,6 @@ export class JournifyClient {
   private applyRawEventData = (event: JournifyEvent): JournifyEvent => {
     return {
       ...event,
-      ...this.userInfo.get(true),
       writeKey: this.config.writeKey,
       messageId: getUUID(),
       timestamp: new Date().toISOString(),
@@ -459,7 +461,7 @@ export class JournifyClient {
   ): Promise<JournifyEvent> => {
     const userInfo = await this.processUserInfo(event);
     const context = await this.context.get(true);
-    return {
+    const normalizedEvent = {
       ...event,
       ...userInfo,
       context: {
@@ -467,6 +469,10 @@ export class JournifyClient {
         ...context,
       },
     } as JournifyEvent;
+    if (!hasExternalIds(userInfo.externalIds)) {
+      delete normalizedEvent.externalIds;
+    }
+    return normalizedEvent;
   };
 
   /**
@@ -489,14 +495,25 @@ export class JournifyClient {
       if (this.config.hashPII) {
         traits = await hashPII(traits);
       }
-      const userInfo = await this.userInfo.set((state) => ({
-        ...state,
-        userId: event.userId ?? state.userId,
-        traits: {
-          ...state.traits,
-          ...traits,
-        },
-      }));
+      const userInfo = await this.userInfo.set((state) => {
+        const sanitizedStoredIds = sanitizeExternalIds(state.externalIds);
+        const nextExternalIds =
+          event.externalIds !== undefined
+            ? sanitizeExternalIds(event.externalIds)
+            : sanitizedStoredIds;
+
+        return {
+          ...state,
+          userId: event.userId ?? state.userId,
+          traits: {
+            ...state.traits,
+            ...traits,
+          },
+          externalIds: hasExternalIds(nextExternalIds)
+            ? nextExternalIds
+            : undefined,
+        };
+      });
 
       return {
         anonymousId: userInfo.anonymousId,
@@ -505,15 +522,20 @@ export class JournifyClient {
           ...userInfo.traits,
           ...traits,
         },
+        ...(hasExternalIds(userInfo.externalIds)
+          ? { externalIds: userInfo.externalIds }
+          : {}),
       };
     }
 
     const userInfo = await this.userInfo.get(true);
+    const externalIds = sanitizeExternalIds(userInfo.externalIds);
 
     return {
       anonymousId: userInfo.anonymousId,
       userId: userInfo.userId,
       traits: userInfo.traits,
+      ...(hasExternalIds(externalIds) ? { externalIds } : {}),
     };
   };
 
@@ -526,6 +548,7 @@ export class JournifyClient {
         anonymousId,
         userId: undefined,
         traits: undefined,
+        externalIds: undefined,
       });
 
       await allSettled(
@@ -637,13 +660,21 @@ export class JournifyClient {
     await this.process(event);
   }
 
-  async identify(userId?: string, userTraits?: Traits) {
+  async identify(
+    userId: string,
+    userTraits?: Traits,
+    externalIds?: ExternalIds
+  ) {
     if (!userId) {
       throw new Error('userId is required to identify a user');
     }
     const event = createIdentifyEvent({
       userId: userId,
       userTraits: userTraits,
+      externalIds:
+        externalIds === undefined
+          ? undefined
+          : sanitizeExternalIds(externalIds),
     });
 
     await this.process(event);

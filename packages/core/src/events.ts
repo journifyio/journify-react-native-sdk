@@ -1,14 +1,17 @@
 export const createIdentifyEvent = ({
   userId,
   userTraits = {},
+  externalIds,
 }: {
   userId?: string;
   userTraits?: Traits;
+  externalIds?: ExternalIds;
 }): JournifyEvent => {
   return {
     type: JournifyEventType.IDENTIFY,
     userId: userId,
     traits: userTraits,
+    ...(externalIds === undefined ? {} : { externalIds }),
   };
 };
 
@@ -95,9 +98,56 @@ export type Traits = object & {
   [k: string]: JsonValue;
 };
 
-export type ExternalIds = object & {
-  [k: string]: JsonValue;
+export const SUPPORTED_EXTERNAL_ID_KEYS = [
+  'google_click_id',
+  'google_wbraid',
+  'google_gbraid',
+  'google_ga',
+  'facebook_click_id',
+  'facebook_browser_id',
+  'pinterest_click_id',
+  'snapchat_click_id',
+  'snapchat_scid',
+  'tiktok_click_id',
+  'tiktok_ttp',
+  'twitter_click_id',
+  'microsoft_click_id',
+  'linkedin_click_id',
+  'openai_click_id',
+] as const;
+
+export type ExternalIdKey = (typeof SUPPORTED_EXTERNAL_ID_KEYS)[number];
+export type ExternalIds = Partial<Record<ExternalIdKey, string>>;
+
+const supportedExternalIdKeys = new Set<string>(SUPPORTED_EXTERNAL_ID_KEYS);
+
+export const sanitizeExternalIds = (externalIds: unknown): ExternalIds => {
+  if (
+    externalIds === null ||
+    typeof externalIds !== 'object' ||
+    Array.isArray(externalIds)
+  ) {
+    return {};
+  }
+
+  return Object.entries(externalIds).reduce<ExternalIds>(
+    (sanitized, [key, value]) => {
+      if (
+        supportedExternalIdKeys.has(key) &&
+        typeof value === 'string' &&
+        value.length > 0
+      ) {
+        sanitized[key as ExternalIdKey] = value;
+      }
+      return sanitized;
+    },
+    {}
+  );
 };
+
+export const hasExternalIds = (externalIds?: ExternalIds): boolean =>
+  externalIds !== undefined && Object.keys(externalIds).length > 0;
+
 export interface JournifyEvent {
   messageId?: string;
   type: JournifyEventType;
@@ -187,4 +237,5 @@ export type UserInfoState = {
   anonymousId: string;
   userId?: string;
   traits?: Traits;
+  externalIds?: ExternalIds;
 };

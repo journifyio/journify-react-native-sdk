@@ -27,7 +27,12 @@ const Home = ({navigation}: {navigation: any}) => {
             lastname: 'smith',
             email: 'joe@smith.com',
             phone: '9665237890',
-          });
+          },{
+              facebook_click_id: 'fbclid_test_123',
+              facebook_browser_id: 'fbp_test_123',
+              snapchat_click_id: 'snapclid_test_123',
+              snapchat_scid: 'scid_test_123',
+            });
         },
       },
       {
@@ -35,11 +40,14 @@ const Home = ({navigation}: {navigation: any}) => {
         name: 'Track',
         testID: 'BUTTON_TRACK',
         onPress: () => {
-          void track('add_to_cart', {
-            value: 100.32,
-            currency: 'USD',
-            items: [{id: '123', name: 'Shoes', price: 50.16}],
-          });
+          void track(
+            'add_to_cart',
+            {
+              value: 100.32,
+              currency: 'USD',
+              items: [{id: '123', name: 'Shoes', price: 50.16}],
+            },
+          );
         },
       },
       {
