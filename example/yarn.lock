@@ -1929,7 +1929,7 @@ __metadata:
 
 "@journifyio/react-native-sdk-sovran@file:../packages/sovran::locator=example%40workspace%3A.":
   version: 1.10.1
-  resolution: "@journifyio/react-native-sdk-sovran@file:../packages/sovran#../packages/sovran::hash=cde456&locator=example%40workspace%3A."
+  resolution: "@journifyio/react-native-sdk-sovran@file:../packages/sovran#../packages/sovran::hash=b5acc3&locator=example%40workspace%3A."
   dependencies:
     ansi-regex: "npm:5.0.1"
     deepmerge: "npm:^4.2.2"
@@ -1943,7 +1943,7 @@ __metadata:
   peerDependenciesMeta:
     "@react-native-async-storage/async-storage":
       optional: true
-  checksum: 10/64927a364361a436ec62428d4effa2b613c35aa6a2468f9e4cc3b9c4c825d3469b4ef2a9413400118a3c8b6c50440847a3416c278c8f3d5b8434bd0c2ff72e42
+  checksum: 10/ce469b35a6678922b77c0956906058e08d7d419e4f02ad98178fdc2d6e490306600c8ea59548d034991b4f246b1b6d95a024a2f3ab262715c70e3eeeb1bc968f
   languageName: node
   linkType: hard
 
@@ -1969,7 +1969,7 @@ __metadata:
 
 "@journifyio/react-native-sdk@file:../packages/core::locator=example%40workspace%3A.":
   version: 1.12.1
-  resolution: "@journifyio/react-native-sdk@file:../packages/core#../packages/core::hash=b74938&locator=example%40workspace%3A."
+  resolution: "@journifyio/react-native-sdk@file:../packages/core#../packages/core::hash=bc66bb&locator=example%40workspace%3A."
   dependencies:
     "@journifyio/react-native-sdk-sovran": "npm:^1.8.0"
     "@segment/tsub": "npm:^2"
@@ -1987,7 +1987,7 @@ __metadata:
   peerDependenciesMeta:
     "@react-native-async-storage/async-storage":
       optional: true
-  checksum: 10/53b10a005fffd9826d9a275e33450bfaaedc19ba983cfe3f5eda4b8c448cac5176b32716feccb10ffdbdd69ddd38b0c38d275db2c7fa60ee408dec53be5ea600
+  checksum: 10/63e4e92a953223aa064304ad8f8d8a73dfcd803337465d26d6a98105d93e7eff533204251c82fa0d91fa10d93d67d86399ce2e7b5e7051c7aa153d3143b48d05
   languageName: node
   linkType: hard
 
