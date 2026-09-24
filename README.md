@@ -147,7 +147,7 @@ The [track](https://docs.journify.io/tracking/track-event) method is how you rec
 Method signature:
 
 ```js
-track: (event: string, properties?: JsonMap, externalIds?: ExternalIds) => void;
+track: (event: string, properties?: JsonMap) => void;
 ```
 
 Example usage:
@@ -158,32 +158,6 @@ journifyClient.track('View Product', {
   productName: 'Striped trousers',
 });
 ```
-
-You can optionally associate a track event with attribution identifiers from
-external systems. Pass `externalIds` as the third argument; it is serialized as
-a top-level event field alongside `type`, `event`, and `properties`.
-
-For the list of supported attribution identifier fields, see
-[Attribution identifiers](https://docs.journify.io/syncs/context#attribution-identifiers).
-
-```js
-journifyClient.track(
-  'Purchase',
-  {
-    amount: 29.99,
-    currency: 'USD',
-  },
-  {
-    facebook_click_id: 'fbclid_12345',
-    facebook_browser_id: 'fbp_987',
-    snapchat_click_id: 'snapclid_12345',
-    snapchat_scid: 'scid_987',
-  }
-);
-```
-
-Do not put `externalIds` inside `properties`. Calls that omit the third
-argument keep the existing payload shape.
 
 ### Screen
 
@@ -212,7 +186,7 @@ The [identify](https://docs.journify.io/tracking/identify-event) call lets you t
 Method signature:
 
 ```js
-identify: (userId: string, userTraits?: JsonMap) => void;
+identify: (userId: string, userTraits?: Traits, externalIds?: ExternalIds) => void;
 ```
 
 Example usage:
@@ -220,12 +194,34 @@ Example usage:
 ```js
 const { identify } = useJournify();
 
-identify('user-123', {
-  username: 'MisterWhiskers',
-  email: 'hello@test.com',
-  plan: 'premium',
-});
+identify(
+  'user-123',
+  {
+    username: 'MisterWhiskers',
+    email: 'hello@test.com',
+    plan: 'premium',
+  },
+  {
+    google_click_id: 'gclid_12345',
+    facebook_browser_id: 'fbp_987',
+  }
+);
 ```
+
+External IDs are stored on the user, serialized as the top-level
+`externalIds` event field, and reused automatically on subsequent events. A
+later `identify` call with external IDs replaces the stored set; pass `{}` to
+clear it. Unsupported keys and empty or non-string values are ignored.
+
+Supported keys are `google_click_id`, `google_wbraid`, `google_gbraid`,
+`google_ga`, `facebook_click_id`, `facebook_browser_id`,
+`pinterest_click_id`, `snapchat_click_id`, `snapchat_scid`,
+`tiktok_click_id`, `tiktok_ttp`, `twitter_click_id`,
+`microsoft_click_id`, `linkedin_click_id`, and `openai_click_id`. See
+[Attribution identifiers](https://docs.journify.io/syncs/context#attribution-identifiers)
+for descriptions.
+
+Do not place `externalIds` inside `properties` or `traits`.
 
 ### Reset
 

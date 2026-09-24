@@ -24,12 +24,12 @@ type StoreConfig = {
 
 export type ClientMethods = {
   screen: (name: string, properties?: JsonMap) => Promise<void>;
-  track: (
-    event: string,
-    properties?: JsonMap,
+  track: (event: string, properties?: JsonMap) => Promise<void>;
+  identify: (
+    userId: string,
+    userTraits?: Traits,
     externalIds?: ExternalIds
   ) => Promise<void>;
-  identify: (userId?: string, userTraits?: Traits) => Promise<void>;
   flush: () => Promise<void>;
   reset: (resetAnonymousId?: boolean) => Promise<void>;
 };
